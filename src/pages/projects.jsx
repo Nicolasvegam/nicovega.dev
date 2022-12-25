@@ -7,43 +7,46 @@ import logoAnimaginary from '@/images/logos/animaginary.svg'
 import logoCosmos from '@/images/logos/cosmos.svg'
 import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
+import logoCarvuk from '@/images/logos/carvuk-logo.svg'
+import logoEod from '@/images/logos/eod-logo.svg'
+import logoArdum from '@/images/logos/ardum-logo.svg'
+import logoAstrazeneca from '@/images/logos/astrazeneca-logo.svg'
 
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'Carvuk',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: logoPlanetaria,
+      'El asistente personal para tu auto. Relájate, nos encargamos de todo!',
+    link: { href: 'http://carvuk.com', label: 'carvuk.com' },
+    logo: logoCarvuk,
   },
   {
-    name: 'Animaginary',
+    name: 'Ardum Page',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoAnimaginary,
+      'Webapp para un cliente que trabaja en los relaves mineros.',
+    link: { href: 'https://ardum.cl', label: 'ardum.cl' },
+    logo: logoArdum,
   },
   {
-    name: 'HelioStream',
+    name: 'Eod',
     description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
+      'Landing web para una institución gobernamental. Nunca me pagaron 🥲',
+    link: { href: 'https://www.eodpurranque.cl', label: 'eodpurranque.cl' },
+    logo: logoEod,
   },
   {
-    name: 'cosmOS',
+    name: 'TERA',
     description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
-  },
-  {
-    name: 'OpenShuttle',
-    description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
+      'Software de RRHH para una compañía italiana. Mis compañeros eran portugueses SIUUUUU.',
+    link: { href: 'https://github.com/Nicolasvegam/TERA', label: 'github.com' },
     logo: logoOpenShuttle,
+  },
+  {
+    name: 'AstraZeneca',
+    description:
+      'Software de RRHH para AstraZeneca en el Cono Sur. Lo hicimos en plena pandemia',
+    link: { href: 'https://github.com/Nicolasvegam/astrazeneca', label: 'github.com' },
+    logo: logoAstrazeneca,
   },
 ]
 
@@ -62,15 +65,15 @@ export default function Projects() {
   return (
     <>
       <Head>
-        <title>Projects - Spencer Sharp</title>
+        <title>Proyectos - Nicolás Vega</title>
         <meta
           name="description"
-          content="Things I’ve made trying to put my dent in the universe."
+          content="Cosas que he hecho."
         />
       </Head>
       <SimpleLayout
-        title="Things I’ve made trying to put my dent in the universe."
-        intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+        title="Algunas cositas ✨"
+        intro="Proyectos de trabajo freelance y otras hierbas"
       >
         <ul
           role="list"

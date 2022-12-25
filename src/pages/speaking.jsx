@@ -29,54 +29,40 @@ export default function Speaking() {
   return (
     <>
       <Head>
-        <title>Speaking - Spencer Sharp</title>
+        <title>Speaking - Nicolás Vega</title>
         <meta
           name="description"
-          content="I’ve spoken at events all around the world and been interviewed for many podcasts."
+          content="Me ha tocado ser speaker en algunos eventos."
         />
       </Head>
-      <SimpleLayout
-        title="I’ve spoken at events all around the world and been interviewed for many podcasts."
-        intro="One of my favorite ways to share my ideas is live on stage, where there’s so much more communication bandwidth than there is in writing, and I love podcast interviews because they give me the opportunity to answer questions instead of just present my opinions."
+      <SimpleLayout 
+        title="A veces soy Speaker 🎤"
+        intro="No soy muy bueno, pero me siguen invitando por alguna razón"
       >
         <div className="space-y-20">
-          <SpeakingSection title="Conferences">
+          <SpeakingSection title="Conferencias">
             <Appearance
-              href="#"
-              title="In space, no one can watch you stream — until now"
-              description="A technical deep-dive into HelioStream, the real-time streaming library I wrote for transmitting live video back to Earth."
-              event="SysConf 2021"
-              cta="Watch video"
+              href="https://www.youtube.com/watch?v=mWNQFB9zJ4U"
+              title="Transformando la operación en código"
+              description="La logística detrás de nuestro negocio es lo más importante. ¿Cómo lo solucionamos en Carvuk?"
+              event="Demodev - Octubre 2022"
+              cta="Ver video"
             />
             <Appearance
-              href="#"
-              title="Lessons learned from our first product recall"
-              description="They say that if you’re not embarassed by your first version, you’re doing it wrong. Well when you’re selling DIY space shuttle kits it turns out it’s a bit more complicated."
-              event="Business of Startups 2020"
-              cta="Watch video"
+              href="https://www.youtube.com/watch?v=L0y_VVaacCY"
+              title="¿Cómo creamos nuestro producto en menos de 10 horas?"
+              description="Nicolás Vega, CTO de Carvuk comparte su experiencia en detalle sobre cómo lanzaron el producto al mercado en menos de 10 horas."
+              event="Demodev - Abril 2022"
+              cta="Ver video"
             />
           </SpeakingSection>
           <SpeakingSection title="Podcasts">
             <Appearance
-              href="#"
-              title="Using design as a competitive advantage"
-              description="How we used world-class visual design to attract a great team, win over customers, and get more press for Planetaria."
-              event="Encoding Design, July 2022"
-              cta="Listen to podcast"
-            />
-            <Appearance
-              href="#"
-              title="Bootstrapping an aerospace company to $17M ARR"
-              description="The story of how we built one of the most promising space startups in the world without taking any capital from investors."
-              event="The Escape Velocity Show, March 2022"
-              cta="Listen to podcast"
-            />
-            <Appearance
-              href="#"
-              title="Programming your company operating system"
-              description="On the importance of creating systems and processes for running your business so that everyone on the team knows how to make the right decision no matter the situation."
-              event="How They Work Radio, September 2021"
-              cta="Listen to podcast"
+              href="https://open.spotify.com/episode/2XTOA9Z47o0QvJdMehWvHy?si=d-41CDJxR_2ioLlAdpXkRg"
+              title="Desafíos en la Innovación y el Emprendimiento | Carlos Hinojosa y Nicolás Vega"
+              description="Hablamos con Carlos Hinojosa (CEO @ B-Cycle) y Nicolás Vega (CTO @ Carvuk) sobre sus experiencias emprendiendo como exalumnos de Ingeniería UC, las dificultades de emprender y los aprendizajes que han hecho enfrentándolas."
+              event="La segunda derivada"
+              cta="Escuchar podcast"
             />
           </SpeakingSection>
         </div>

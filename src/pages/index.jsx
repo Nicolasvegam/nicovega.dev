@@ -7,8 +7,6 @@ import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import {
-  TwitterIcon,
-  InstagramIcon,
   GitHubIcon,
   LinkedInIcon,
 } from '@/components/SocialIcons'
@@ -25,6 +23,8 @@ import logoHuawei from '@/images/logos/huawei-logo.svg'
 import logoLookOut from '@/images/logos/lookout-logo.svg'
 import logoIMFD from '@/images/logos/imfd-logo.svg'
 import logoVandv from '@/images/logos/vandv-logo.svg'
+import logoUC from '@/images/logos/uc-logo.svg'
+import logoPoli from '@/images/logos/poli-logo.svg'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
@@ -210,7 +210,7 @@ function Resume() {
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Work</span>
+        <span className="ml-3">Experiencia</span>
       </h2>
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
@@ -219,11 +219,11 @@ function Resume() {
               <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
-              <dt className="sr-only">Company</dt>
+              <dt className="sr-only">Compañía</dt>
               <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
                 {role.company}
               </dd>
-              <dt className="sr-only">Role</dt>
+              <dt className="sr-only">Rol</dt>
               <dd className="text-xs text-zinc-500 dark:text-zinc-400">
                 {role.title}
               </dd>
@@ -246,14 +246,71 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
-        Download CV
-        <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
-      </Button>
     </div>
   )
 }
 
+function Education() {
+  let resume = [
+    {
+      company: 'Politecnico di Torino',
+      title: 'MSc. Mangement & Engineering',
+      logo: logoPoli,
+      start: '2019',
+      end: '2021',
+    },
+    {
+      company: 'Pontificia Universidad Católica',
+      title: 'BSc. Industrial Engineering & Computer Science',
+      logo: logoUC,
+      start: '2015',
+      end: '2019',
+    }
+  ]
+
+  return (
+    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+        <BriefcaseIcon className="h-6 w-6 flex-none" />
+        <span className="ml-3">Educación</span>
+      </h2>
+      <ol className="mt-6 space-y-4">
+        {resume.map((role, roleIndex) => (
+          <li key={roleIndex} className="flex gap-4">
+            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+              <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+            </div>
+            <dl className="flex flex-auto flex-wrap gap-x-2">
+              <dt className="sr-only">Lugar</dt>
+              <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                {role.company}
+              </dd>
+              <dt className="sr-only">Title</dt>
+              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
+                {role.title}
+              </dd>
+              <dt className="sr-only">Date</dt>
+              <dd
+                className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                aria-label={`${role.start.label ?? role.start} until ${
+                  role.end.label ?? role.end
+                }`}
+              >
+                <time dateTime={role.start.dateTime ?? role.start}>
+                  {role.start.label ?? role.start}
+                </time>{' '}
+                <span aria-hidden="true">—</span>{' '}
+                <time dateTime={role.end.dateTime ?? role.end}>
+                  {role.end.label ?? role.end}
+                </time>
+              </dd>
+            </dl>
+          </li>
+        ))}
+      </ol>
+    </div>
+  )
+}
 function Photos() {
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
 
@@ -299,19 +356,18 @@ export default function Home({ articles }) {
             Nicolás Vega
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            Hey! I&apos;m Nico, a mix between a financial and a tech geek. I&apos;m full of ideas and energy to challenge the status quo.
-            I started this weeksite to show my work (I&apos;m a freelancer) and write some stuff about crypto, startups and other projects.
-            Feel free to reach me!  
+            Hola 👋! Soy Nico, ingeniero en software y cofundador de algunas startups. Siempre haciendo o aprendiendo algo distinto. Gracias por la visita!
+            
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
               href="https://github.com/nicolasvegam"
-              aria-label="Follow on GitHub"
+              aria-label="Sígueme on GitHub"
               icon={GitHubIcon}
             />
             <SocialLink
               href="https://www.linkedin.com/in/nicolasvegam/"
-              aria-label="Follow on LinkedIn"
+              aria-label="Sígueme on LinkedIn"
               icon={LinkedInIcon}
             />
           </div>
@@ -326,7 +382,7 @@ export default function Home({ articles }) {
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
+            <Education />
             <Resume />
           </div>
         </div>
