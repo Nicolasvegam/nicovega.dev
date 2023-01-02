@@ -3,14 +3,11 @@ import Head from 'next/head'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
-import logoCosmos from '@/images/logos/cosmos.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoCarvuk from '@/images/logos/carvuk-logo.svg'
-import logoEod from '@/images/logos/eod-logo.svg'
-import logoArdum from '@/images/logos/ardum-logo.svg'
-import logoAstrazeneca from '@/images/logos/astrazeneca-logo.svg'
+import logoCarvuk from '@/images/logos/carvuk-logo.png'
+import logoEod from '@/images/logos/eod-logo.png'
+import logoArdum from '@/images/logos/ardum-logo.png'
+import logoAstrazeneca from '@/images/logos/astrazeneca-logo.png'
 
 const projects = [
   {
