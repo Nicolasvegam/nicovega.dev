@@ -98,7 +98,7 @@ function Article({ article }) {
         {formatDate(article.date)}
       </Card.Eyebrow>
       <Card.Description>{article.description}</Card.Description>
-      <Card.Cta>Read article</Card.Cta>
+      <Card.Cta>Leer artículo</Card.Cta>
     </Card>
   )
 }
@@ -347,7 +347,7 @@ export default function Home({ articles }) {
         </title>
         <meta
           name="description"
-          content="I’m Spencer, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
+          content="Hola 👋! Soy Nico, ingeniero en software y cofundador de algunas startups. Siempre haciendo o aprendiendo algo distinto. Gracias por la visita!"
         />
       </Head>
       <Container className="mt-9">
