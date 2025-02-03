@@ -11,6 +11,7 @@ import {
   LinkedInIcon,
 } from '@/components/SocialIcons'
 import portraitImage from '@/images/portrait.jpg'
+import SEO from '@/components/SEO'
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
@@ -40,13 +41,11 @@ function MailIcon(props) {
 export default function About() {
   return (
     <>
-      <Head>
-        <title>Sobre mí - Nicolás Vega</title>
-        <meta
-          name="description"
-          content="Soy Nicolás Vega"
-        />
-      </Head>
+      <SEO 
+        title="Sobre mí - Nicolás Vega"
+        description="Acá puedes conocer un poco más sobre mí."
+        url="https://nicovega.dev/about"
+      />
       <Container className="mt-16 sm:mt-32">
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
           <div className="lg:pl-20">
@@ -66,13 +65,10 @@ export default function About() {
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
                 Me considero computín desde que empezé a jugar Habbo Hotel (12 años?) y descubrí
-                una forma de crear una dúplica exacta del juego en HTML.
+                una forma de crear una dúplica exacta del juego inyectando HTML.
               </p>
               <p>
-                Hoy soy el confundador y CTO de Carvuk.com, una plataforma que se encarga de todos 
-                los problemas, papeleo, gestiones que necesitas para tu auto. Nuestra misión es
-                que sólo te preocupes de manejar tu auto y nada más! Nosotros seremos el asistente personal
-                para tu auto.
+                Co-fundador y CTO de Carvuk.com, una plataforma que se encarga de TODO lo relacionado al auto con un par de clicks.
               </p>
             </div>
           </div>

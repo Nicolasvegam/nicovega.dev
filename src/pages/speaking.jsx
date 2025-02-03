@@ -32,12 +32,12 @@ export default function Speaking() {
         <title>Speaking - Nicolás Vega</title>
         <meta
           name="description"
-          content="Me ha tocado ser speaker en algunos eventos."
+          content="Algo de contenido anda por ahí."
         />
       </Head>
       <SimpleLayout 
-        title="A veces soy Speaker 🎤"
-        intro="No soy muy bueno, pero me siguen invitando por alguna razón"
+        title="A veces hago Contenido 🎤"
+        intro="Creo que no soy muy bueno, pero se puede mejorar."
       >
         <div className="space-y-20">
           <SpeakingSection title="Conferencias">
@@ -63,6 +63,15 @@ export default function Speaking() {
               description="Hablamos con Carlos Hinojosa (CEO @ B-Cycle) y Nicolás Vega (CTO @ Carvuk) sobre sus experiencias emprendiendo como exalumnos de Ingeniería UC, las dificultades de emprender y los aprendizajes que han hecho enfrentándolas."
               event="La segunda derivada"
               cta="Escuchar podcast"
+            />
+          </SpeakingSection>
+          <SpeakingSection title="Youtube">
+            <Appearance
+              href="https://www.youtube.com/watch?v=QuBqFgd-cvc&t=160s"
+              title="Automatización de correos con Google y ChatGPT"
+              description="Te enseño cómo automatizar correos con Google y ChatGPT sin saber programar."
+              event="Nicolás Vega"
+              cta="Ver video"
             />
           </SpeakingSection>
         </div>

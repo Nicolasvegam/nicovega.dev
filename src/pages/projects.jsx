@@ -1,13 +1,18 @@
 import Image from 'next/image'
 import Head from 'next/head'
 
-import { Card } from '@/components/Card'
-import { SimpleLayout } from '@/components/SimpleLayout'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
+import {Card} from '../components/Card'
+import { SimpleLayout } from '../components/SimpleLayout'
+import SEO from '@/components/SEO';
+
 import logoCarvuk from '@/images/logos/carvuk-logo.png'
 import logoEod from '@/images/logos/eod-logo.png'
 import logoArdum from '@/images/logos/ardum-logo.png'
 import logoAstrazeneca from '@/images/logos/astrazeneca-logo.png'
+import logoRutificador from '@/images/logos/rutificador.svg'
+import logoFeriados from '@/images/logos/feriados.webp'
+
+
 
 const projects = [
   {
@@ -18,6 +23,20 @@ const projects = [
     logo: logoCarvuk,
   },
   {
+    name: 'Feriados Chile',
+    description:
+      'App para ver los días feriados en Chile y calcular días hábiles.',
+    link: { href: 'https://feriados-chile.nicovega.dev', label: 'feriados-chile' },
+    logo: logoFeriados,
+  },
+  {
+    name: 'Rutificador',
+    description:
+      'App para verificar la validez y generar RUTs chilenos.',
+    link: { href: 'https://rutificador.nicovega.dev', label: 'rutificador' },
+    logo: logoRutificador,
+  },
+  {
     name: 'Ardum Page',
     description:
       'Webapp para un cliente que trabaja en los relaves mineros.',
@@ -25,18 +44,11 @@ const projects = [
     logo: logoArdum,
   },
   {
-    name: 'Eod',
+    name: 'EOD Puerto Varas',
     description:
-      'Landing web para una institución gobernamental. Nunca me pagaron 🥲',
-    link: { href: 'https://www.eodpurranque.cl', label: 'eodpurranque.cl' },
+      'Landing web para una institución gobernamental.',
+    link: { href: 'https://eod-puertovaras-git-main-nicolasvegams-projects.vercel.app/', label: 'eodpuertovaras.cl' },
     logo: logoEod,
-  },
-  {
-    name: 'TERA',
-    description:
-      'Software de RRHH para una compañía italiana. Mis compañeros eran portugueses SIUUUUU.',
-    link: { href: 'https://github.com/Nicolasvegam/TERA', label: 'github.com' },
-    logo: logoOpenShuttle,
   },
   {
     name: 'AstraZeneca',
@@ -47,7 +59,8 @@ const projects = [
   },
 ]
 
-function LinkIcon(props) {
+
+const LinkIcon = (props) => {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
@@ -58,31 +71,29 @@ function LinkIcon(props) {
   )
 }
 
-export default function Projects() {
+const Projects = () => {
   return (
     <>
-      <Head>
-        <title>Proyectos - Nicolás Vega</title>
-        <meta
-          name="description"
-          content="Cosas que he hecho."
-        />
-      </Head>
+      <SEO 
+        title="Proyectos - Nicolás Vega"
+        description="Cosas que he hecho."
+        url="https://nicovega.dev/projects"
+      />
       <SimpleLayout
-        title="Algunas cositas ✨"
-        intro="Proyectos de trabajo freelance y otras hierbas"
+        title="Proyectos ✨"
+        intro="Cosas que he hecho alguna vez"
       >
         <ul
           role="list"
           className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
         >
           {projects.map((project) => (
-            <Card as="li" key={project.name}>
+            <Card as="li" key={project.name} className="group">
               <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
                 <Image
                   src={project.logo}
                   alt=""
-                  className="h-8 w-8"
+                  className="h-8 w-8 rounded-full"
                   unoptimized
                 />
               </div>
@@ -101,3 +112,5 @@ export default function Projects() {
     </>
   )
 }
+
+export default Projects
