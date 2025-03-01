@@ -28,6 +28,21 @@ module.exports = withMDX({
     ];
   },
 
+  async redirects() {
+    return [
+      {
+        source: '/rutificador/:path*',
+        destination: 'https://rutificador.nicovega.dev/:path*',
+        permanent: true,
+      },
+      {
+        source: '/feriados-chile/:path*',
+        destination: 'https://feriados-chile.nicovega.dev/:path*',
+        permanent: true,
+      },
+    ];
+  },
+  
   async rewrites() {
     return [
       {
@@ -40,6 +55,5 @@ module.exports = withMDX({
       },
     ];
   },
-  
   
 })
