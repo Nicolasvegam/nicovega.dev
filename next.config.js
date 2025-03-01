@@ -27,7 +27,7 @@ module.exports = withMDX({
       },
     ];
   },
-  // Add rewrites configuration
+
   async rewrites() {
     return [
       {

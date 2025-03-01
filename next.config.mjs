@@ -6,6 +6,7 @@ import rehypePrism from '@mapbox/rehype-prism'
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx'],
   reactStrictMode: true,
+  assetPrefix: 'https://www.nicovega.dev',
   experimental: {
     scrollRestoration: true,
   },
