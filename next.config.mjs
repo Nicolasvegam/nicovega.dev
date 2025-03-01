@@ -10,6 +10,31 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: '/rutificador/:path*',
+        destination: 'https://rutificador.nicovega.dev/:path*',
+      },
+      {
+        source: '/feriados-chile/:path*',
+        destination: 'https://feriados-chile.nicovega.dev/:path*',
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'index, follow',
+          },
+        ],
+      },
+    ];
+  },
 }
 
 const withMDX = nextMDX({

@@ -14,30 +14,7 @@ module.exports = withMDX({
   images: {
     domains: ['nicovega.dev', 'images.unsplash.com'], 
   },
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'index, follow',
-          },
-        ],
-      },
-    ];
-  },
 
-  async rewrites() {
-    return [
-      {
-        source: '/rutificador/:path*',
-        destination: 'https://rutificador.nicovega.dev/:path*',
-      },
-      {
-        source: '/feriados-chile/:path*',
-        destination: 'https://feriados-chile.nicovega.dev/:path*',
-      },
-    ];
-  },
+
+  
 })
