@@ -11,7 +11,6 @@ module.exports = withMDX({
   // Append the default value with md extensions
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactStrictMode: true,
-  assetPrefix: 'https://www.nicovega.dev',
   images: {
     domains: ['nicovega.dev', 'images.unsplash.com'], 
   },
