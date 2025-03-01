@@ -27,4 +27,17 @@ module.exports = withMDX({
       },
     ];
   },
+  // Add rewrites configuration
+  async rewrites() {
+    return [
+      {
+        source: '/rutificador/:path*',
+        destination: 'https://rutificador.nicovega.dev/:path*',
+      },
+      {
+        source: '/feriados-chile/:path*',
+        destination: 'https://feriados-chile.nicovega.dev/:path*',
+      },
+    ];
+  },
 })
