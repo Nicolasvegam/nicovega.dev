@@ -7,6 +7,9 @@ const routes = [
   '/speaking',
   '/uses',
   '/thank-you',
+  '/rutificador',
+  '/rutificador/validar',
+  '/feriados-chile',
 ];
 
 const generateSitemap = () => {
