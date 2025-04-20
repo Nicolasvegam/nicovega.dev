@@ -11,6 +11,7 @@ import logoArdum from '@/images/logos/ardum-logo.png'
 import logoAstrazeneca from '@/images/logos/astrazeneca-logo.png'
 import logoRutificador from '@/images/logos/rutificador.svg'
 import logoFeriados from '@/images/logos/feriados.webp'
+import logoTrotaglobo from '@/images/logos/trotamundo.png'
 
 
 
@@ -56,6 +57,13 @@ const projects = [
       'Software de RRHH para AstraZeneca en el Cono Sur. Lo hicimos en plena pandemia',
     link: { href: 'https://github.com/Nicolasvegam/astrazeneca', label: 'github.com' },
     logo: logoAstrazeneca,
+  },
+  {
+    name: 'Trotaglobo',
+    description:
+      'Acá llevo el trackeo de mis viajes y futuros destinos.',
+    link: { href: 'https://trotaglobo.vercel.app', label: 'trotaglobo' },
+    logo: logoTrotaglobo,
   },
 ]
 

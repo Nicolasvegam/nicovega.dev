@@ -40,6 +40,11 @@ module.exports = withMDX({
         destination: 'https://feriados-chile.nicovega.dev/:path*',
         permanent: true,
       },
+      {
+        source: '/trotaglobo/:path*',
+        destination: 'https://trotaglobo.vercel.app/:path*',
+        permanent: true,
+      },
     ];
   },
   
@@ -52,6 +57,10 @@ module.exports = withMDX({
       {
         source: '/feriados-chile/:path*',
         destination: 'https://feriados-chile.nicovega.dev/:path*',
+      },
+      {
+        source: '/trotaglobo/:path*',
+        destination: 'https://trotaglobo.vercel.app/:path*',
       },
     ];
   },
