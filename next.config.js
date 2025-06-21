@@ -55,7 +55,7 @@ module.exports = withMDX({
         destination: 'https://rutificador.nicovega.dev/:path*',
       },
       {
-        source: '/feriados-chile/:path*',
+        source: '/feriados-chile-2025/:path*',
         destination: 'https://feriados-chile.nicovega.dev/:path*',
       },
       {
