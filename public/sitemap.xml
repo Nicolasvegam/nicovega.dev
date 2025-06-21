@@ -30,7 +30,12 @@
     <url>
         <loc>https://nicovega.dev/rutificador/validar</loc>
     </url>
-    
+    <url>
+        <loc>https://nicovega.dev/rutificador/creador-rut</loc>
+    </url>
+    <url>
+        <loc>https://nicovega.dev/rutificador/rut-al-azar</loc>
+    </url>    
     <url>
         <loc>https://nicovega.dev/feriados-chile-2025</loc>
     </url>
