@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Head from 'next/head'
 
 import {Card} from '../components/Card'
 import { SimpleLayout } from '../components/SimpleLayout'
@@ -8,14 +7,20 @@ import SEO from '@/components/SEO';
 import logoCarvuk from '@/images/logos/carvuk-logo.png'
 import logoEod from '@/images/logos/eod-logo.png'
 import logoArdum from '@/images/logos/ardum-logo.png'
-import logoAstrazeneca from '@/images/logos/astrazeneca-logo.png'
 import logoRutificador from '@/images/logos/rutificador.svg'
 import logoFeriados from '@/images/logos/feriados.webp'
 import logoTrotaglobo from '@/images/logos/trotamundo.png'
+import logoDiMonk from '@/images/logos/di-monk-logo.png'
 
 
 
 const projects = [
+  {
+    name: 'Di Monk',
+    description: 'Un lugar para concentrar todo el desarrollo de herramientas y experimentos.',
+    link: { href: 'https://software.nicovega.dev/', label: 'Di Monk' },
+    logo: logoDiMonk,
+  },
   {
     name: 'Carvuk',
     description:
@@ -50,13 +55,6 @@ const projects = [
       'Landing web para una institución gobernamental.',
     link: { href: 'https://eod-puertovaras-git-main-nicolasvegams-projects.vercel.app/', label: 'eodpuertovaras.cl' },
     logo: logoEod,
-  },
-  {
-    name: 'AstraZeneca',
-    description:
-      'Software de RRHH para AstraZeneca en el Cono Sur. Lo hicimos en plena pandemia',
-    link: { href: 'https://github.com/Nicolasvegam/astrazeneca', label: 'github.com' },
-    logo: logoAstrazeneca,
   },
   {
     name: 'Trotaglobo',

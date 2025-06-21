@@ -24,6 +24,7 @@ import logoIMFD from '@/images/logos/imfd-logo.png'
 import logoVandv from '@/images/logos/vandv-logo.png'
 import logoUC from '@/images/logos/uc-logo.png'
 import logoPoli from '@/images/logos/poli-logo.png'
+import logoDrexel from '@/images/logos/drexel-uni-logo.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
@@ -105,7 +106,12 @@ function Article({ article }) {
 
 function SocialLink({ icon: Icon, ...props }) {
   return (
-    <Link className="group -m-1 p-1" {...props}>
+    <Link 
+      className="group -m-1 p-1 transition-all duration-200 ease-in-out hover:scale-110" 
+      {...props}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
     </Link>
   )
@@ -146,6 +152,9 @@ function Resume() {
       company: 'Carvuk',
       title: 'Co-Founder',
       logo: logoCarvuk,
+      location: 'Santiago, Chile',
+      flag: '🇨🇱',
+      link: 'https://carvuk.com',
       start: '2022',
       end: {
         label: 'Present',
@@ -156,6 +165,9 @@ function Resume() {
       company: 'Xepelin',
       title: 'Product Engineer',
       logo: logoXepelin,
+      location: 'CDMX, México',
+      flag: '🇲🇽',
+      link: 'https://xepelin.com',
       start: '2020',
       end: '2022',
     },
@@ -163,6 +175,9 @@ function Resume() {
       company: 'IMFD',
       title: 'Data Researcher',
       logo: logoIMFD,
+      location: 'Santiago, Chile',
+      flag: '🇨🇱',
+      link: 'https://imfd.cl',
       start: '2020',
       end: '2022',
     }
@@ -171,6 +186,9 @@ function Resume() {
       company: 'Vodafone Italia',
       title: 'Mobility Trainee',
       logo: logoVodafone,
+      location: 'Turín, Italia',
+      flag: '🇮🇹',
+      link: 'https://vodafone.it',
       start: '2019',
       end: '2020',
     }
@@ -179,6 +197,9 @@ function Resume() {
       company: 'Mercado Libre',
       title: 'Software Intern',
       logo: logoMeli,
+      location: 'Santiago, Chile',
+      flag: '🇨🇱',
+      link: 'https://mercadolibre.cl',
       start: '2019',
       end: '2019',
     },
@@ -187,6 +208,9 @@ function Resume() {
       company: 'Huawei China',
       title: 'Tech Trainee',
       logo: logoHuawei,
+      location: 'Shenzhen, China',
+      flag: '🇨🇳',
+      link: 'https://huawei.com',
       start: '2019',
       end: '2019',
     },
@@ -194,6 +218,9 @@ function Resume() {
       company: 'LookOut',
       title: 'Co-Founder',
       logo: logoLookOut,
+      location: 'Santiago, Chile',
+      flag: '🇨🇱',
+      link: '#',
       start: '2017',
       end: '2019',
     },
@@ -201,6 +228,9 @@ function Resume() {
       company: 'V&V Store',
       title: 'Co-Founder',
       logo: logoVandv,
+      location: 'Santiago, Chile',
+      flag: '🇨🇱',
+      link: '#',
       start: '2016',
       end: '2018',
     },
@@ -215,13 +245,30 @@ function Resume() {
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
-            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+            <Link 
+              href={role.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 hover:scale-110 transition-all duration-200 ease-in-out"
+            >
               <Image src={role.logo} alt="" className="h-7 w-7" height={18} width={18} unoptimized={true} />
-            </div>
+            </Link>
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dt className="sr-only">Compañía</dt>
               <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                {role.company}
+                <div className="flex justify-between items-center">
+                  <Link 
+                    href={role.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-all duration-200 ease-in-out hover:scale-105"
+                  >
+                    {role.company}
+                  </Link>
+                  <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                    {role.flag} {role.location}
+                  </span>
+                </div>
               </dd>
               <dt className="sr-only">Rol</dt>
               <dd className="text-xs text-zinc-500 dark:text-zinc-400">
@@ -256,16 +303,32 @@ function Education() {
       company: 'Politecnico di Torino',
       title: 'MSc. Mangement & Engineering',
       logo: logoPoli,
+      location: 'Turín, Italia',
+      flag: '🇮🇹',
+      link: 'https://www.polito.it/',
       start: '2019',
       end: '2021',
     },
     {
-      company: 'Pontificia Universidad Católica',
-      title: 'BSc. Industrial Engineering & Computer Science',
+      company: 'Drexel University',
+      title: 'English Language Certification',
+      logo: logoDrexel,
+      location: 'Philadelphia, USA',
+      flag: '🇺🇸',
+      link: 'https://drexel.edu',
+      start: '2019',
+      end: '2019',
+    },
+    {
+      company: 'PUC',
+      title: 'BSc. Management & Computer Science',
       logo: logoUC,
+      location: 'Santiago, Chile',
+      flag: '🇨🇱',
+      link: 'https://uc.cl',
       start: '2015',
       end: '2019',
-    }
+    },
   ]
 
   return (
@@ -277,13 +340,30 @@ function Education() {
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
-            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image src={role.logo} alt="" className="h-7 w-7" />
-            </div>
+            <Link 
+              href={role.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 hover:scale-110 transition-all duration-200 ease-in-out"
+            >
+              <Image src={role.logo} alt="" className="h-7 w-7 rounded-full object-cover" />
+            </Link>
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dt className="sr-only">Lugar</dt>
               <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                {role.company}
+                <div className="flex justify-between items-center">
+                  <Link 
+                    href={role.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-all duration-200 ease-in-out hover:scale-105"
+                  >
+                    {role.company}
+                  </Link>
+                  <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                    {role.flag} {role.location}
+                  </span>
+                </div>
               </dd>
               <dt className="sr-only">Title</dt>
               <dd className="text-xs text-zinc-500 dark:text-zinc-400">
@@ -311,6 +391,7 @@ function Education() {
     </div>
   )
 }
+
 function Photos() {
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
 
@@ -352,8 +433,7 @@ export default function Home({ articles }) {
             Nicolás Vega
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            Hola 👋! Soy Nico, ingeniero en software y cofundador de Carvuk.com. Siempre estoy haciendo algo o aprendiendo algo distinto. ¡Gracias por la visita!
-            
+            Hola 👋! Soy Nico, ingeniero y cofundador de Carvuk.com. Siempre estoy haciendo algo o aprendiendo algo distinto. ¡Gracias por la visita!
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -378,8 +458,8 @@ export default function Home({ articles }) {
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Education />
             <Resume />
+            <Education />
           </div>
         </div>
       </Container>

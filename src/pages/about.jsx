@@ -1,12 +1,9 @@
 import Image from 'next/image'
-import Head from 'next/head'
 import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import {
-  TwitterIcon,
-  InstagramIcon,
   GitHubIcon,
   LinkedInIcon,
 } from '@/components/SocialIcons'
@@ -60,15 +57,15 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              Hola! Soy Nicolás Vega
+              Hola!
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                Me considero computín desde que empezé a jugar Habbo Hotel (12 años?) y descubrí
-                una forma de crear una dúplica exacta del juego inyectando HTML.
+                Siempre estoy haciendo algo o aprendiendo algo distinto.
               </p>
               <p>
-                Co-fundador y CTO de Carvuk.com, una plataforma que se encarga de TODO lo relacionado al auto con un par de clicks.
+                Cofundé <Link href="https://www.carvuk.com" className="text-teal-500 hover:text-teal-600">Carvuk.com</Link>, una plataforma que se encarga de TODO lo relacionado al auto con un par de clicks.
+                ¿Tienes auto? Sin duda, podemos ayudarte con las reparaciones, mantenimiento, seguros, etc.
               </p>
             </div>
           </div>
@@ -81,11 +78,11 @@ export default function About() {
                 Sígueme LinkedIn
               </SocialLink>
               <SocialLink
-                href="mailto:nicolas@carvuk.com"
+                href="mailto:hola@nicovega.dev"
                 icon={MailIcon}
                 className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
               >
-                nicolas@carvuk.com
+                hola@nicovega.dev
               </SocialLink>
             </ul>
           </div>
