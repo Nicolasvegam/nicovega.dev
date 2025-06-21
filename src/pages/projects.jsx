@@ -27,7 +27,7 @@ const projects = [
     name: 'Feriados Chile',
     description:
       'App para ver los días feriados en Chile y calcular días hábiles.',
-    link: { href: '/feriados-chile-2025', label: 'feriados-chile' },
+    link: { href: 'https://feriados-chile.nicovega.dev/', label: 'feriados-chile' },
     logo: logoFeriados,
   },
   {
