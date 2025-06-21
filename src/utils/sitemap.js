@@ -6,10 +6,10 @@ const routes = [
   '/projects',
   '/speaking',
   '/uses',
-  '/thank-you',
   '/rutificador',
   '/rutificador/validar',
-  '/feriados-chile',
+  '/feriados-chile-2025',
+  '/trotaglobo',
 ];
 
 const generateSitemap = () => {

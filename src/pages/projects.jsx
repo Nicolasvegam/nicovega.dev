@@ -27,14 +27,14 @@ const projects = [
     name: 'Feriados Chile',
     description:
       'App para ver los días feriados en Chile y calcular días hábiles.',
-    link: { href: 'https://feriados-chile.nicovega.dev', label: 'feriados-chile' },
+    link: { href: '/feriados-chile-2025', label: 'feriados-chile' },
     logo: logoFeriados,
   },
   {
     name: 'Rutificador',
     description:
       'App para verificar la validez y generar RUTs chilenos.',
-    link: { href: 'https://rutificador.nicovega.dev', label: 'rutificador' },
+    link: { href: '/rutificador', label: 'rutificador' },
     logo: logoRutificador,
   },
   {
@@ -62,7 +62,7 @@ const projects = [
     name: 'Trotaglobo',
     description:
       'Acá llevo el trackeo de mis viajes y futuros destinos.',
-    link: { href: 'https://trotaglobo.vercel.app', label: 'trotaglobo' },
+    link: { href: '/trotaglobo', label: 'trotaglobo' },
     logo: logoTrotaglobo,
   },
 ]
