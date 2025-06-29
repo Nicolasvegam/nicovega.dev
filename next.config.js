@@ -45,6 +45,11 @@ module.exports = withMDX({
         destination: 'https://trotaglobo.vercel.app/:path*',
         permanent: true,
       },
+      {
+        source: '/software/:path*',
+        destination: 'https://software.nicovega.dev/:path*',
+        permanent: true,
+      },
     ];
   },
   
@@ -55,12 +60,16 @@ module.exports = withMDX({
         destination: 'https://rutificador.nicovega.dev/:path*',
       },
       {
-        source: '/feriados-chile-2025/:path*',
+        source: '/feriados-chile/:path*',
         destination: 'https://feriados-chile.nicovega.dev/:path*',
       },
       {
         source: '/trotaglobo/:path*',
         destination: 'https://trotaglobo.vercel.app/:path*',
+      },
+      {
+        source: '/software/:path*',
+        destination: 'https://software.nicovega.dev/:path*',
       },
     ];
   },

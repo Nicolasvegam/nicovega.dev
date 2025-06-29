@@ -37,11 +37,28 @@
         <loc>https://nicovega.dev/rutificador/rut-al-azar</loc>
     </url>    
         
-        <loc>https://feriados-chile.nicovega.dev</loc>
+    <url>
+        <loc>https://nicovega.dev/feriados-chile</loc>
     </url>
 
     <url>
         <loc>https://nicovega.dev/trotaglobo</loc>
+    </url>
+
+    <url>
+        <loc>https://nicovega.dev/software</loc>
+    </url>
+    <url>
+        <loc>https://nicovega.dev/servicios/aplicaciones-inteligencia-artificial</loc>
+    </url>
+    <url>
+        <loc>https://nicovega.dev/servicios/consultoria-productividad</loc>
+    </url>
+    <url>
+        <loc>https://nicovega.dev/servicios/desarrollo-software-medida</loc>
+    </url>
+    <url>
+        <loc>https://nicovega.dev/servicios/due-diligence-tecnico</loc>
     </url>
 </urlset>
     
