@@ -56,20 +56,8 @@ module.exports = withMDX({
   async rewrites() {
     return [
       {
-        source: '/rutificador/:path*',
-        destination: 'https://rutificador.nicovega.dev/:path*',
-      },
-      {
-        source: '/feriados-chile/:path*',
-        destination: 'https://feriados-chile.nicovega.dev/:path*',
-      },
-      {
         source: '/trotaglobo/:path*',
         destination: 'https://trotaglobo.vercel.app/:path*',
-      },
-      {
-        source: '/software/:path*',
-        destination: 'https://software.nicovega.dev/:path*',
       },
     ];
   },

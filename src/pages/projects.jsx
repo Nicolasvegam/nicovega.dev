@@ -18,28 +18,28 @@ const projects = [
   {
     name: 'Di Monk',
     description: 'Un lugar para concentrar todo el desarrollo de herramientas y experimentos.',
-    link: { href: 'https://software.nicovega.dev/', label: 'Di Monk' },
+    link: { href: 'https://www.dimonk.com/', label: 'Di Monk' },
     logo: logoDiMonk,
   },
   {
     name: 'Carvuk',
     description:
       'El asistente personal para tu auto. Relájate, nos encargamos de todo!',
-    link: { href: 'http://carvuk.com', label: 'carvuk.com' },
+    link: { href: 'https://www.carvuk.com', label: 'Carvuk' },
     logo: logoCarvuk,
   },
   {
     name: 'Feriados Chile',
     description:
       'App para ver los días feriados en Chile y calcular días hábiles.',
-    link: { href: 'https://feriados-chile.nicovega.dev/', label: 'feriados-chile' },
+    link: { href: 'https://feriadosenchile.com/', label: 'Feriados en Chile' },
     logo: logoFeriados,
   },
   {
     name: 'Rutificador',
     description:
       'App para verificar la validez y generar RUTs chilenos.',
-    link: { href: '/rutificador', label: 'rutificador' },
+    link: { href: 'https://www.rutschile.com/', label: 'Rutificar' },
     logo: logoRutificador,
   },
   {
