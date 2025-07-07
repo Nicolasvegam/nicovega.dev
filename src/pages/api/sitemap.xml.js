@@ -1,7 +1,15 @@
 import generateSitemap from '@/utils/sitemap';
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   res.setHeader('Content-Type', 'text/xml');
-  res.write(generateSitemap());
-  res.end();
+  res.setHeader('Cache-Control', 'public, s-maxage=1200, stale-while-revalidate=600');
+  
+  try {
+    const sitemap = await generateSitemap();
+    res.write(sitemap);
+    res.end();
+  } catch (error) {
+    console.error('Error generating sitemap:', error);
+    res.status(500).end();
+  }
 } 

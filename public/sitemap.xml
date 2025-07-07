@@ -1,64 +1,70 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-    <url>
-        <loc>https://nicovega.dev/</loc>
-    </url>
-
-    <url>
-        <loc>https://nicovega.dev/about</loc>
-    </url>
-
-    <url>
-        <loc>https://nicovega.dev/projects</loc>
-    </url>
-    
-    <url>
-        <loc>https://nicovega.dev/speaking</loc>
-    </url>
-    
-    <url>
-        <loc>https://nicovega.dev/uses</loc>
-    </url>
-    
-    <url>
-        <loc>https://nicovega.dev/thank-you</loc>
-    </url>
-    
-    <url>
-        <loc>https://nicovega.dev/rutificador</loc>
-    </url>
-    
-    <url>
-        <loc>https://nicovega.dev/rutificador/validar</loc>
-    </url>
-    <url>
-        <loc>https://nicovega.dev/rutificador/creador-rut</loc>
-    </url>
-    <url>
-        <loc>https://nicovega.dev/rutificador/rut-al-azar</loc>
-    </url>    
-        
-    <url>
-        <loc>https://nicovega.dev/feriados-chile</loc>
-    </url>
-
-    <url>
-        <loc>https://nicovega.dev/trotaglobo</loc>
-    </url>
-
-    <url>
-        <loc>https://nicovega.dev/software</loc>
-    </url>
-    <url>
-        <loc>https://nicovega.dev/servicios/aplicaciones-inteligencia-artificial</loc>
-    </url>
-    <url>
-        <loc>https://nicovega.dev/servicios/consultoria-productividad</loc>
-    </url>
-    <url>
-        <loc>https://nicovega.dev/servicios/desarrollo-software-medida</loc>
-    </url>
-    <url>
-        <loc>https://nicovega.dev/servicios/due-diligence-tecnico</loc>
-    </url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.nicovega.dev/</loc>
+    <lastmod>2025-01-07T00:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.nicovega.dev/about</loc>
+    <lastmod>2025-01-07T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.nicovega.dev/projects</loc>
+    <lastmod>2025-01-07T00:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.nicovega.dev/speaking</loc>
+    <lastmod>2025-01-07T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nicovega.dev/uses</loc>
+    <lastmod>2025-01-07T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.nicovega.dev/books</loc>
+    <lastmod>2025-01-07T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nicovega.dev/articles</loc>
+    <lastmod>2025-01-07T00:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.nicovega.dev/thank-you</loc>
+    <lastmod>2025-01-07T00:00:00.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.nicovega.dev/articles/automatiza-y-controla-la-rentabilidad-de-tus-cryptomonedas-con-google-script</loc>
+    <lastmod>2021-05-03T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nicovega.dev/articles/como-el-metaverso-me-hizo-reencontrarme-con-el-nicolas-de-10-aos</loc>
+    <lastmod>2025-01-07T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nicovega.dev/articles/que-pasa-por-la-mente-de-un-computin-cuando-le-proponen-ser-CTO-de-una-startup</loc>
+    <lastmod>2025-01-07T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
     

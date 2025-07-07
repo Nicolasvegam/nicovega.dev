@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nicovega.dev/sitemap.xml 
+Sitemap: https://www.nicovega.dev/sitemap.xml 
