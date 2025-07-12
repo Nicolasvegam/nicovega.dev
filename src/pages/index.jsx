@@ -396,16 +396,17 @@ export default function Home({ articles }) {
         title="Nicolás Vega - Software Engineer"
         description="Hola 👋! Soy Nico, ingeniero en software y cofundador de algunas startups. Siempre haciendo o aprendiendo algo distinto. Gracias por la visita!"
         url="https://nicovega.dev"
+        tags={['software engineer', 'tech lead', 'startup founder', 'carvuk', 'xepelin', 'mercadolibre', 'vodafone', 'huawei', 'chile', 'technology']}
       />
       <Container className="mt-9">
-        <div className="max-w-2xl">
+        <header className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
             Nicolás Vega
           </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400" role="doc-subtitle">
             Hola 👋! Soy Nico, ingeniero y cofundador de Carvuk.com. Siempre estoy haciendo algo o aprendiendo algo distinto. ¡Gracias por la visita!
           </p>
-          <div className="mt-6 flex gap-6">
+          <nav className="mt-6 flex gap-6" aria-label="Social media links">
             <SocialLink
               href="https://github.com/nicolasvegam"
               aria-label="Sígueme on GitHub"
@@ -416,22 +417,23 @@ export default function Home({ articles }) {
               aria-label="Sígueme on LinkedIn"
               icon={LinkedInIcon}
             />
-          </div>
-        </div>
+          </nav>
+        </header>
       </Container>
       <Photos />
       <Container className="mt-24 md:mt-28">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">
+        <main className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+          <section className="flex flex-col gap-16" aria-labelledby="recent-articles">
+            <h2 id="recent-articles" className="sr-only">Recent Articles</h2>
             {articles.map((article) => (
               <Article key={article.slug} article={article} />
             ))}
-          </div>
-          <div className="space-y-10 lg:pl-16 xl:pl-24">
+          </section>
+          <aside className="space-y-10 lg:pl-16 xl:pl-24" aria-label="Professional information">
             <Resume />
             <Education />
-          </div>
-        </div>
+          </aside>
+        </main>
       </Container>
       <Container className="mt-16 sm:mt-20">
         <MiLibreria />

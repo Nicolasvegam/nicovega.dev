@@ -1,4 +1,28 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.nicovega.dev/sitemap.xml 
+# LLM-friendly crawlers
+User-agent: OpenAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# Sitemaps
+Sitemap: https://nicovega.dev/sitemap.xml
+Sitemap: https://nicovega.dev/rss/feed.xml 

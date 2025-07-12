@@ -2,6 +2,7 @@ import Head from 'next/head'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { SEO } from '@/components/SEO'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
 
@@ -35,13 +36,43 @@ function Article({ article }) {
 }
 
 export default function ArticlesIndex({ articles }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Nicolás Vega - Artículos",
+    "description": "Artículos sobre tecnología, emprendimiento y desarrollo de software",
+    "url": "https://nicovega.dev/articles",
+    "author": {
+      "@type": "Person",
+      "name": "Nicolás Vega"
+    },
+    "blogPost": articles.map(article => ({
+      "@type": "BlogPosting",
+      "headline": article.title,
+      "description": article.description,
+      "url": `https://nicovega.dev/articles/${article.slug}`,
+      "datePublished": article.date,
+      "author": {
+        "@type": "Person",
+        "name": "Nicolás Vega"
+      }
+    }))
+  };
+
   return (
     <>
+      <SEO
+        title="Artículos - Nicolás Vega"
+        description="Artículos sobre tecnología, emprendimiento y desarrollo de software por Nicolás Vega"
+        url="https://nicovega.dev/articles"
+        tags={['tecnología', 'emprendimiento', 'software', 'programming', 'development', 'tech']}
+      />
       <Head>
-        <title>Artículos - Nicolás Vega</title>
-        <meta
-          name="description"
-          content="Escribo un poco de todo, pero más de tecnología y emprendimiento."
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData)
+          }}
         />
       </Head>
       <SimpleLayout
