@@ -1,10 +1,7 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Button } from '@/components/Button'
-import book1 from '@/images/books/book-1-shoe-dog.webp'
-import book2 from '@/images/books/book-2-steve-jobs.webp'
-import book3 from '@/images/books/book-3-sacred-seven.jpg'
-import book4 from '@/images/books/book-4-zero-to-one.jpg'
-import book5 from '@/images/books/book-5-psychology-of-money.jpg'
+import { booksData } from '@/data/booksData'
 
 function ArrowDownIcon(props) {
   return (
@@ -20,43 +17,8 @@ function ArrowDownIcon(props) {
 }
 
 export default function MiLibreria() {
-  const books = [
-    {
-      id: 1,
-      title: 'Shoe Dog',
-      author: 'Phil Knight',
-      image: book1,
-      link: '#'
-    },
-    {
-      id: 2,
-      title: 'Steve Jobs',
-      author: 'Walter Isaacson',
-      image: book2,
-      link: '#'
-    },
-    {
-      id: 3,
-      title: 'The Sacred Seven',
-      author: 'Unknown',
-      image: book3,
-      link: '#'
-    },
-    {
-      id: 4,
-      title: 'Zero to One',
-      author: 'Peter Thiel',
-      image: book4,
-      link: '#'
-    },
-    {
-      id: 5,
-      title: 'The Psychology of Money',
-      author: 'Morgan Housel',
-      image: book5,
-      link: '#'
-    }
-  ]
+  // Show only the first 5 books
+  const displayBooks = booksData.slice(0, 5)
 
   return (
     <div className="mt-16 sm:mt-20">
@@ -70,9 +32,10 @@ export default function MiLibreria() {
         </Button>
       </div>
       <div className="flex overflow-x-auto md:grid md:grid-cols-5 gap-4 pb-4 md:pb-0">
-        {books.map((book) => (
-          <div
+        {displayBooks.map((book) => (
+          <Link
             key={book.id}
+            href={`/books/${book.slug}`}
             className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:scale-105 transition-transform duration-200 flex-shrink-0 w-32 md:w-auto"
           >
             <Image
@@ -90,9 +53,9 @@ export default function MiLibreria() {
                 {book.author}
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
   )
-} 
+}

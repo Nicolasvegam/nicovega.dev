@@ -38,9 +38,9 @@ export function Book({ book, className }) {
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200" />
       </div>
       <h2 className="mt-4 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-        <Card.Link href={book.link.href}>{book.title}</Card.Link>
+        <Card.Link href={`/books/${book.slug}`}>{book.title}</Card.Link>
       </h2>
       <Card.Description>{book.author}</Card.Description>
     </Card>
   )
-} 
+}
