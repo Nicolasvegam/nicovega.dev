@@ -282,7 +282,7 @@ export const booksData = [
     rating: 4,
     slug: 'como-ganar-amigos-e-influir',
     review: {
-      summary: 'Principios básicos que mucha gente aplica intuitivamente. Encontré muchas cosas aplicables para relaciones personales, familiares y laborales. Me llevé accionables muy concretos. Todos dicen "soy malo para los nombres" (yo incluido), pero es solucionable y es clave. Me falta leer la mitad.',
+      summary: 'Los principios son puro sentido común, pero raramente los aplicamos de forma consciente. Mientras leía, reconocía muchas características de buenos líderes que he conocido. Es una guía práctica y simple que te da herramientas concretas para mejorar tus relaciones personales y profesionales.',
       liked: 'Sí, muy práctico',
       about: 'Principios para mejorar las relaciones interpersonales y la influencia positiva.',
       whyBought: 'Clásico de desarrollo personal recomendado.',
