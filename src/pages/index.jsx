@@ -7,6 +7,7 @@ import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import {
   GitHubIcon,
+  InstagramIcon,
   LinkedInIcon,
 } from '@/components/SocialIcons'
 import MiLibreria from '@/components/MiLibreria'
@@ -411,6 +412,11 @@ export default function Home({ articles }) {
               href="https://github.com/nicolasvegam"
               aria-label="Sígueme on GitHub"
               icon={GitHubIcon}
+            />
+            <SocialLink
+              href="https://instagram.com/nicovega.dev"
+              aria-label="Sígueme on Instagram"
+              icon={InstagramIcon}
             />
             <SocialLink
               href="https://www.linkedin.com/in/nicolasvegam/"

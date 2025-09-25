@@ -14,6 +14,7 @@ import book13 from '@/images/books/book-13-measure-what-matters.webp'
 import book14 from '@/images/books/book-14-breve-historia-del-mundo.jpg'
 import book15 from '@/images/books/book-15-creativity-inc.webp'
 import book16 from '@/images/books/book-16-como-ganar-amigos.jpeg'
+import book17 from '@/images/books/book-17-atomic-habits.jpg'
 
 // Placeholder images for books that need to be added
 const placeholderImage = book2
@@ -289,6 +290,23 @@ export const booksData = [
       favoritePart: 'La importancia de recordar nombres y su impacto en las relaciones.',
       goodFor: 'Cualquiera que quiera mejorar sus habilidades sociales.',
       notGoodFor: 'Quienes vean estos principios como manipulación.'
+    }
+  },
+  {
+    id: 17,
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    image: book17,
+    rating: 3,
+    slug: 'atomic-habits',
+    review: {
+      summary: 'El libro me pareció un poco largo, ya que pasa por muchos detalles sobre cómo formar un hábito y cómo hacerlo más propicio. Aun así, encontré útil esa profundidad porque entrega varios consejos prácticos. Me gustó que incluya múltiples casos de personas como ejemplos, lo que hace más fácil conectar con las ideas. Sin embargo, considerando lo famoso que es el libro, no me pareció tan potente en lo personal. De todas maneras, sí invita a repensar qué es lo verdaderamente importante: definir cuál es el hábito más relevante para uno mismo y qué objetivos se quieren lograr. También rescato la advertencia sobre cómo los hábitos pueden llegar a un peak de rendimiento, donde ya no generan tanta mejora.',
+      liked: 'Está bien',
+      about: 'Un sistema completo para formar buenos hábitos y eliminar los malos a través de pequeños cambios incrementales.',
+      whyBought: 'Por su fama y promesa de cambio a través de hábitos.',
+      favoritePart: 'El apilamiento de hábitos y el sistema de recompensas para reforzar comportamientos.',
+      goodFor: 'Quienes buscan mejorar su vida cotidiana con cambios pequeños pero constantes.',
+      notGoodFor: 'Quienes esperen ideas revolucionarias o transformadoras.'
     }
   }
 ]
