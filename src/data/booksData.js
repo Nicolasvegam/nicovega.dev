@@ -42,7 +42,7 @@ export const booksData = [
     title: 'Shoe Dog',
     author: 'Phil Knight',
     image: book1,
-    rating: 4,
+    rating: 5,
     slug: 'shoe-dog',
     review: {
       summary: 'Una historia de locura protagonizada por un obsesivo del running decidido a mejorar el deporte. Phil Knight armó un equipo especial y apasionado, pasando por momentos que te hacen ver cuántas veces Nike estuvo al borde de la ruina. Celebré a sus primeros atletas como mérito propio. Me encantaron los pasajes donde sale a correr por los bosques de Oregon para despejar la mente.',
@@ -308,5 +308,182 @@ export const booksData = [
       goodFor: 'Quienes buscan mejorar su vida cotidiana con cambios pequeños pero constantes.',
       notGoodFor: 'Quienes esperen ideas revolucionarias o transformadoras.'
     }
+  }
+]
+
+export const wishlistData = [
+  {
+    id: 1,
+    title: 'High Output Management',
+    author: 'Andrew S. Grove',
+    image: 'https://covers.openlibrary.org/b/isbn/0679762884-L.jpg'
+  },
+  {
+    id: 2,
+    title: 'Rework',
+    author: 'Jason Fried & David Heinemeier Hansson',
+    image: 'https://covers.openlibrary.org/b/isbn/0307463745-L.jpg'
+  },
+  {
+    id: 3,
+    title: 'Contagious: Why Things Catch On',
+    author: 'Jonah Berger',
+    image: 'https://covers.openlibrary.org/b/isbn/1451686579-L.jpg'
+  },
+  {
+    id: 4,
+    title: 'Good Strategy Bad Strategy',
+    author: 'Richard Rumelt',
+    image: 'https://covers.openlibrary.org/b/isbn/0307886239-L.jpg'
+  },
+  {
+    id: 5,
+    title: 'Made to Stick',
+    author: 'Chip Heath & Dan Heath',
+    image: 'https://covers.openlibrary.org/b/isbn/1400064287-L.jpg'
+  },
+  {
+    id: 6,
+    title: 'Meditaciones',
+    author: 'Marco Aurelio',
+    image: 'https://covers.openlibrary.org/b/isbn/0140449337-L.jpg'
+  },
+  {
+    id: 7,
+    title: 'Sapiens: A Brief History of Humankind',
+    author: 'Yuval Noah Harari',
+    image: 'https://covers.openlibrary.org/b/isbn/0062316095-L.jpg'
+  },
+  {
+    id: 8,
+    title: 'Principles',
+    author: 'Ray Dalio',
+    image: 'https://covers.openlibrary.org/b/isbn/1501124021-L.jpg'
+  },
+  {
+    id: 9,
+    title: 'Range: Why Generalists Triumph in a Specialized World',
+    author: 'David Epstein',
+    image: 'https://covers.openlibrary.org/b/isbn/0735214484-L.jpg'
+  },
+  {
+    id: 10,
+    title: 'Thinking, Fast and Slow',
+    author: 'Daniel Kahneman',
+    image: 'https://covers.openlibrary.org/b/isbn/0374533555-L.jpg'
+  },
+  {
+    id: 11,
+    title: 'The Alchemist',
+    author: 'Paulo Coelho',
+    image: 'https://covers.openlibrary.org/b/isbn/0062315005-L.jpg'
+  },
+  {
+    id: 12,
+    title: '1984',
+    author: 'George Orwell',
+    image: 'https://covers.openlibrary.org/b/isbn/0451524934-L.jpg'
+  },
+  {
+    id: 13,
+    title: 'Branding: In Five and a Half Steps',
+    author: 'Michael Johnson',
+    image: 'https://covers.openlibrary.org/b/isbn/0500518963-L.jpg'
+  },
+  {
+    id: 14,
+    title: 'Lovemarks: The Future Beyond Brands',
+    author: 'Kevin Roberts',
+    image: 'https://images.cdn2.buscalibre.com/fit-in/360x360/b8/d1/b8d171e20015f6f7ba63a0af9e1a2e24.jpg'
+  },
+  {
+    id: 15,
+    title: 'Piense y Hágase Rico',
+    author: 'Napoleon Hill',
+    image: 'https://covers.openlibrary.org/b/isbn/1585424331-L.jpg'
+  },
+  {
+    id: 16,
+    title: 'Rompe la Barrera del No',
+    author: 'Chris Voss',
+    image: 'https://covers.openlibrary.org/b/isbn/0062407805-L.jpg'
+  },
+  {
+    id: 17,
+    title: 'El líder que no tenía cargo',
+    author: 'Robin Sharma',
+    image: 'https://covers.openlibrary.org/b/isbn/1439109125-L.jpg'
+  },
+  {
+    id: 19,
+    title: 'The Brand Gap',
+    author: 'Marty Neumeier',
+    image: 'https://covers.openlibrary.org/b/isbn/0321348109-L.jpg'
+  },
+  {
+    id: 20,
+    title: 'Let My People Go Surfing',
+    author: 'Yvon Chouinard',
+    image: 'https://covers.openlibrary.org/b/isbn/0143037838-L.jpg'
+  },
+  {
+    id: 21,
+    title: 'The 7 Habits of Highly Effective People',
+    author: 'Stephen R. Covey',
+    image: 'https://covers.openlibrary.org/b/isbn/1982137274-L.jpg'
+  },
+  {
+    id: 22,
+    title: 'The Subtle Art of Not Giving a F*ck',
+    author: 'Mark Manson',
+    image: 'https://covers.openlibrary.org/b/isbn/0062457713-L.jpg'
+  },
+  {
+    id: 23,
+    title: "Man's Search for Meaning",
+    author: 'Viktor E. Frankl',
+    image: 'https://covers.openlibrary.org/b/isbn/0807014273-L.jpg'
+  },
+  {
+    id: 24,
+    title: 'The Art of Spending Money',
+    author: 'Morgan Housel',
+    image: 'https://m.media-amazon.com/images/I/71Pusl9N1AL._AC_UF1000,1000_QL80_.jpg'
+  },
+  {
+    id: 25,
+    title: 'Build',
+    author: 'Tony Fadell',
+    image: 'https://m.media-amazon.com/images/I/71nlpZVDrDL._AC_UF1000,1000_QL80_.jpg'
+  },
+  {
+    id: 26,
+    title: 'The Five Dysfunctions of a Team',
+    author: 'Patrick Lencioni',
+    image: 'https://covers.openlibrary.org/b/isbn/0787960756-L.jpg'
+  },
+  {
+    id: 27,
+    title: 'Extreme Ownership: How U.S. Navy SEALs Lead and Win',
+    author: 'Jocko Willink & Leif Babin',
+    image: 'https://covers.openlibrary.org/b/isbn/1250183863-L.jpg'
+  },
+  {
+    id: 28,
+    title: 'Engineering Management for the Rest of Us',
+    author: 'Sarah Drasner',
+    image: 'https://m.media-amazon.com/images/I/71wvKXWfcML._AC_UF1000,1000_QL80_.jpg'
+  },
+  {
+    id: 29,
+    title: 'Team Topologies',
+    author: 'Matthew Skelton & Manuel Pais',
+    image: 'https://images.cdn3.buscalibre.com/fit-in/360x360/f2/a5/f2a5c47aa2c9b773c38161db4606a088.jpg'
+  },
+  {
+    id: 30,
+    title: 'The Phoenix Project',
+    author: 'Gene Kim, Kevin Behr & George Spafford',
+    image: 'https://m.media-amazon.com/images/I/81ZMvLDtmIL._AC_UF1000,1000_QL80_.jpg'
   }
 ]
