@@ -308,6 +308,23 @@ export const booksData = [
       goodFor: 'Quienes buscan mejorar su vida cotidiana con cambios pequeños pero constantes.',
       notGoodFor: 'Quienes esperen ideas revolucionarias o transformadoras.'
     }
+  },
+  {
+    id: 18,
+    title: 'Build',
+    author: 'Tony Fadell',
+    image: 'https://m.media-amazon.com/images/I/71nlpZVDrDL._AC_UF1000,1000_QL80_.jpg',
+    rating: 4,
+    slug: 'build',
+    review: {
+      summary: 'Un súper buen libro con muchos consejos desde estar en una startup sin norte pero entretenida, en un corporativo gigante, en Apple creando el iPhone, hasta pasar a crear su propia startup y venderla a Google. El tipo pasa por todo y te deja una gran enseñanza sobre cómo navegar distintas etapas de carrera y construir productos que importen.',
+      liked: 'Mucho',
+      about: 'Las lecciones de Tony Fadell sobre construir productos, equipos y empresas, desde el iPod hasta Nest.',
+      whyBought: 'Por la experiencia única de alguien que pasó por tantas etapas distintas.',
+      favoritePart: 'La variedad de experiencias: startup, corporativo, Apple, y emprendimiento propio.',
+      goodFor: 'Emprendedores, product managers y cualquiera en tech.',
+      notGoodFor: 'Quienes busquen solo una perspectiva de Silicon Valley.'
+    }
   }
 ]
 
@@ -340,7 +357,8 @@ export const wishlistData = [
     id: 5,
     title: 'Made to Stick',
     author: 'Chip Heath & Dan Heath',
-    image: 'https://covers.openlibrary.org/b/isbn/1400064287-L.jpg'
+    image: 'https://covers.openlibrary.org/b/isbn/1400064287-L.jpg',
+    readingNow: true
   },
   {
     id: 6,
@@ -452,9 +470,9 @@ export const wishlistData = [
   },
   {
     id: 25,
-    title: 'Build',
-    author: 'Tony Fadell',
-    image: 'https://m.media-amazon.com/images/I/71nlpZVDrDL._AC_UF1000,1000_QL80_.jpg'
+    title: 'The Creative Act: A Way of Being',
+    author: 'Rick Rubin',
+    image: 'https://covers.openlibrary.org/b/isbn/0593652886-L.jpg'
   },
   {
     id: 26,
@@ -485,5 +503,19 @@ export const wishlistData = [
     title: 'The Phoenix Project',
     author: 'Gene Kim, Kevin Behr & George Spafford',
     image: 'https://m.media-amazon.com/images/I/81ZMvLDtmIL._AC_UF1000,1000_QL80_.jpg'
+  },
+  {
+    id: 31,
+    title: 'Designing Data-Intensive Applications',
+    author: 'Martin Kleppmann',
+    image: 'https://m.media-amazon.com/images/I/91YfNb49PLL._AC_UF1000,1000_QL80_.jpg',
+    readingNow: true
+  },
+  {
+    id: 32,
+    title: 'El Arte de la Guerra',
+    author: 'Sun Tzu',
+    image: 'https://covers.openlibrary.org/b/isbn/0140439196-L.jpg',
+    readingNow: true
   }
 ]

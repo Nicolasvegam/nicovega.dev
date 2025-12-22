@@ -7,6 +7,17 @@ function WishlistBook({ book }) {
   return (
     <li className="group relative">
       <div className="aspect-[3/4] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800">
+        {book.readingNow && (
+          <div className="absolute top-2 right-2 z-10">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-teal-500 px-2.5 py-1 text-xs font-medium text-white shadow-lg">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
+              </span>
+              Reading
+            </span>
+          </div>
+        )}
         <img
           src={book.image}
           alt={`${book.title} by ${book.author}`}
