@@ -1,8 +1,10 @@
 import Image from 'next/image'
+import type { SVGProps } from 'react'
+import type { StaticImageData } from 'next/image'
 
-import {Card} from '../components/Card'
-import { SimpleLayout } from '../components/SimpleLayout'
-import SEO from '@/components/SEO';
+import { Card } from '@/components/Card'
+import { SimpleLayout } from '@/components/SimpleLayout'
+import SEO from '@/components/SEO'
 
 import logoCarvuk from '@/images/logos/carvuk-logo.png'
 import logoEod from '@/images/logos/eod-logo.png'
@@ -12,9 +14,17 @@ import logoFeriados from '@/images/logos/feriados.webp'
 import logoTrotaglobo from '@/images/logos/trotamundo.png'
 import logoDiMonk from '@/images/logos/di-monk-logo.png'
 
+interface Project {
+  name: string
+  description: string
+  link: {
+    href: string
+    label: string
+  }
+  logo: StaticImageData
+}
 
-
-const projects = [
+const projects: Project[] = [
   {
     name: 'Di Monk',
     description: 'Un lugar para concentrar todo el desarrollo de herramientas y experimentos.',
@@ -65,8 +75,7 @@ const projects = [
   },
 ]
 
-
-const LinkIcon = (props) => {
+function LinkIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
@@ -77,16 +86,16 @@ const LinkIcon = (props) => {
   )
 }
 
-const Projects = () => {
+export default function Projects() {
   return (
     <>
-      <SEO 
+      <SEO
         title="Proyectos - Nicolás Vega"
         description="Cosas que he hecho."
         url="https://nicovega.dev/projects"
       />
       <SimpleLayout
-        title="Proyectos ✨"
+        title="Proyectos"
         intro="Cosas que he hecho alguna vez"
       >
         <ul
@@ -118,5 +127,3 @@ const Projects = () => {
     </>
   )
 }
-
-export default Projects

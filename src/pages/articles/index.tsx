@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import type { GetStaticProps } from 'next'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
@@ -6,7 +7,18 @@ import SEO from '@/components/SEO'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
 
-function Article({ article }) {
+interface ArticlePreview {
+  slug: string
+  title: string
+  date: string
+  description: string
+}
+
+interface ArticleProps {
+  article: ArticlePreview
+}
+
+function Article({ article }: ArticleProps) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
@@ -35,29 +47,58 @@ function Article({ article }) {
   )
 }
 
-export default function ArticlesIndex({ articles }) {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Nicolás Vega - Artículos",
-    "description": "Artículos sobre tecnología, emprendimiento y desarrollo de software",
-    "url": "https://nicovega.dev/articles",
-    "author": {
-      "@type": "Person",
-      "name": "Nicolás Vega"
+interface ArticlesIndexProps {
+  articles: ArticlePreview[]
+}
+
+interface BlogPostingSchema {
+  '@type': 'BlogPosting'
+  headline: string
+  description: string
+  url: string
+  datePublished: string
+  author: {
+    '@type': 'Person'
+    name: string
+  }
+}
+
+interface BlogSchema {
+  '@context': 'https://schema.org'
+  '@type': 'Blog'
+  name: string
+  description: string
+  url: string
+  author: {
+    '@type': 'Person'
+    name: string
+  }
+  blogPost: BlogPostingSchema[]
+}
+
+export default function ArticlesIndex({ articles }: ArticlesIndexProps) {
+  const structuredData: BlogSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'Nicolás Vega - Artículos',
+    description: 'Artículos sobre tecnología, emprendimiento y desarrollo de software',
+    url: 'https://nicovega.dev/articles',
+    author: {
+      '@type': 'Person',
+      name: 'Nicolás Vega'
     },
-    "blogPost": articles.map(article => ({
-      "@type": "BlogPosting",
-      "headline": article.title,
-      "description": article.description,
-      "url": `https://nicovega.dev/articles/${article.slug}`,
-      "datePublished": article.date,
-      "author": {
-        "@type": "Person",
-        "name": "Nicolás Vega"
+    blogPost: articles.map(article => ({
+      '@type': 'BlogPosting',
+      headline: article.title,
+      description: article.description,
+      url: `https://nicovega.dev/articles/${article.slug}`,
+      datePublished: article.date,
+      author: {
+        '@type': 'Person',
+        name: 'Nicolás Vega'
       }
     }))
-  };
+  }
 
   return (
     <>
@@ -91,10 +132,12 @@ export default function ArticlesIndex({ articles }) {
   )
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<ArticlesIndexProps> = async () => {
+  const articles = await getAllArticles()
+
   return {
     props: {
-      articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
+      articles: articles.map(({ component, ...meta }) => meta),
     },
   }
 }

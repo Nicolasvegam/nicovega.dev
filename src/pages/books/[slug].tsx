@@ -1,11 +1,19 @@
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+import type { GetStaticProps, GetStaticPaths } from 'next'
+import type { ParsedUrlQuery } from 'querystring'
+
 import { Container } from '@/components/Container'
 import { booksData } from '@/data/booksData'
 import Breadcrumb from '@/components/Breadcrumb'
 import SEO from '@/components/SEO'
+import type { Book } from '@/types/books'
 
-function StarRating({ rating }) {
+interface StarRatingProps {
+  rating: number
+}
+
+function StarRating({ rating }: StarRatingProps) {
   return (
     <div className="flex">
       {[...Array(5)].map((_, i) => (
@@ -24,12 +32,12 @@ function StarRating({ rating }) {
   )
 }
 
-export default function BookReview() {
+export default function BookReviewPage() {
   const router = useRouter()
   const { slug } = router.query
-  
+
   const book = booksData.find(b => b.slug === slug)
-  
+
   if (!book) {
     return (
       <Container className="mt-16 sm:mt-32">
@@ -62,7 +70,7 @@ export default function BookReview() {
         <div className="mb-4">
           <Breadcrumb items={breadcrumbItems} />
         </div>
-        
+
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:h-[calc(100vh-12rem)]">
             <div className="lg:col-span-1">
@@ -76,7 +84,7 @@ export default function BookReview() {
                 />
               </div>
             </div>
-            
+
             <div className="lg:col-span-2 lg:overflow-y-auto lg:pr-4">
               <div className="space-y-6">
                 <div>
@@ -90,11 +98,11 @@ export default function BookReview() {
                     <StarRating rating={book.rating} />
                   </div>
                 </div>
-                
+
                 <div className="prose prose-base dark:prose-invert max-w-none">
                   <p className="text-sm lg:text-base">{book.review.summary}</p>
                 </div>
-                
+
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div className="rounded-lg bg-zinc-50 dark:bg-zinc-800/50 p-4">
                     <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -104,7 +112,7 @@ export default function BookReview() {
                       {book.review.liked}
                     </p>
                   </div>
-                  
+
                   <div className="rounded-lg bg-zinc-50 dark:bg-zinc-800/50 p-4">
                     <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                       ¿Por qué lo compré?
@@ -114,7 +122,7 @@ export default function BookReview() {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="rounded-lg bg-zinc-50 dark:bg-zinc-800/50 p-4">
                   <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                     ¿De qué se trata?
@@ -123,7 +131,7 @@ export default function BookReview() {
                     {book.review.about}
                   </p>
                 </div>
-                
+
                 <div className="rounded-lg bg-zinc-50 dark:bg-zinc-800/50 p-4">
                   <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                     Parte favorita
@@ -132,7 +140,7 @@ export default function BookReview() {
                     {book.review.favoritePart}
                   </p>
                 </div>
-                
+
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div className="rounded-lg bg-green-50 dark:bg-green-900/20 p-4">
                     <h3 className="text-sm font-semibold text-green-900 dark:text-green-100">
@@ -142,7 +150,7 @@ export default function BookReview() {
                       {book.review.goodFor}
                     </p>
                   </div>
-                  
+
                   <div className="rounded-lg bg-red-50 dark:bg-red-900/20 p-4">
                     <h3 className="text-sm font-semibold text-red-900 dark:text-red-100">
                       Le puede disgustar a
@@ -161,7 +169,7 @@ export default function BookReview() {
   )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = booksData.map((book) => ({
     params: { slug: book.slug },
   }))
@@ -169,8 +177,12 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps({ params }) {
-  const book = booksData.find((b) => b.slug === params.slug)
+interface BookPageParams extends ParsedUrlQuery {
+  slug: string
+}
+
+export const getStaticProps: GetStaticProps<{ book: Book }, BookPageParams> = async ({ params }) => {
+  const book = booksData.find((b) => b.slug === params?.slug)
 
   if (!book) {
     return {

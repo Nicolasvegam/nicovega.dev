@@ -29,7 +29,7 @@ export default function Books() {
           role="list"
           className="grid grid-cols-2 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {[...booksData].sort((a, b) => b.rating - a.rating).map((book, bookIndex) => (
+          {[...booksData].sort((a, b) => b.rating - a.rating).map((book) => (
             <Book
               key={book.id}
               book={book}

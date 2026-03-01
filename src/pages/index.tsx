@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
+import type { GetStaticProps } from 'next'
+import type { SVGProps, ComponentType } from 'react'
+import type { StaticImageData } from 'next/image'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
@@ -28,7 +31,7 @@ import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
 import SEO from '@/components/SEO'
 
-function MailIcon(props) {
+function MailIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -51,7 +54,7 @@ function MailIcon(props) {
   )
 }
 
-function BriefcaseIcon(props) {
+function BriefcaseIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -74,7 +77,7 @@ function BriefcaseIcon(props) {
   )
 }
 
-function ArrowDownIcon(props) {
+function ArrowDownIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
       <path
@@ -87,7 +90,18 @@ function ArrowDownIcon(props) {
   )
 }
 
-function Article({ article }) {
+interface ArticlePreview {
+  slug: string
+  title: string
+  date: string
+  description: string
+}
+
+interface ArticleProps {
+  article: ArticlePreview
+}
+
+function Article({ article }: ArticleProps) {
   return (
     <Card as="article">
       <Card.Title href={`/articles/${article.slug}`}>
@@ -102,10 +116,16 @@ function Article({ article }) {
   )
 }
 
-function SocialLink({ icon: Icon, ...props }) {
+interface SocialLinkProps {
+  icon: ComponentType<SVGProps<SVGSVGElement>>
+  href: string
+  'aria-label'?: string
+}
+
+function SocialLink({ icon: Icon, ...props }: SocialLinkProps) {
   return (
-    <Link 
-      className="group -m-1 p-1 transition-all duration-200 ease-in-out hover:scale-110" 
+    <Link
+      className="group -m-1 p-1 transition-all duration-200 ease-in-out hover:scale-110"
       {...props}
       target="_blank"
       rel="noopener noreferrer"
@@ -144,8 +164,24 @@ function Newsletter() {
   )
 }
 
+interface DateRange {
+  label?: string
+  dateTime?: number | string
+}
+
+interface Role {
+  company: string
+  title: string
+  logo: StaticImageData
+  location: string
+  flag: string
+  link: string
+  start: string | DateRange
+  end: string | DateRange
+}
+
 function Resume() {
-  let resume = [
+  const resume: (Role | undefined)[] = [
     {
       company: 'Carvuk',
       title: 'Co-Founder',
@@ -178,8 +214,7 @@ function Resume() {
       link: 'https://imfd.cl',
       start: '2020',
       end: '2022',
-    }
-    ,
+    },
     {
       company: 'Vodafone Italia',
       title: 'Mobility Trainee',
@@ -189,8 +224,7 @@ function Resume() {
       link: 'https://vodafone.it',
       start: '2019',
       end: '2020',
-    }
-    ,
+    },
     {
       company: 'Mercado Libre',
       title: 'Software Intern',
@@ -201,7 +235,6 @@ function Resume() {
       start: '2019',
       end: '2019',
     },
-    ,
     {
       company: 'Huawei China',
       title: 'Tech Trainee',
@@ -234,6 +267,8 @@ function Resume() {
     },
   ]
 
+  const filteredResume = resume.filter((role): role is Role => role !== undefined)
+
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -241,62 +276,67 @@ function Resume() {
         <span className="ml-3">Experiencia</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
-          <li key={roleIndex} className="flex gap-4">
-            <Link 
-              href={role.link} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 hover:scale-110 transition-all duration-200 ease-in-out"
-            >
-              <Image src={role.logo} alt="" className="h-7 w-7" height={18} width={18} unoptimized={true} />
-            </Link>
-            <dl className="flex flex-auto flex-wrap gap-x-2">
-              <dt className="sr-only">Compañía</dt>
-              <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                <div className="flex justify-between items-center">
-                  <Link 
-                    href={role.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-all duration-200 ease-in-out hover:scale-105"
-                  >
-                    {role.company}
-                  </Link>
-                  <span className="text-xs text-zinc-500 dark:text-zinc-400">
-                    {role.flag} {role.location}
-                  </span>
-                </div>
-              </dd>
-              <dt className="sr-only">Rol</dt>
-              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-                {role.title}
-              </dd>
-              <dt className="sr-only">Date</dt>
-              <dd
-                className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                aria-label={`${role.start.label ?? role.start} until ${
-                  role.end.label ?? role.end
-                }`}
+        {filteredResume.map((role, roleIndex) => {
+          const startLabel = typeof role.start === 'string' ? role.start : role.start.label ?? ''
+          const startDateTime = typeof role.start === 'string' ? role.start : String(role.start.dateTime ?? role.start.label ?? '')
+          const endLabel = typeof role.end === 'string' ? role.end : role.end.label ?? ''
+          const endDateTime = typeof role.end === 'string' ? role.end : String(role.end.dateTime ?? role.end.label ?? '')
+
+          return (
+            <li key={roleIndex} className="flex gap-4">
+              <Link
+                href={role.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 hover:scale-110 transition-all duration-200 ease-in-out"
               >
-                <time dateTime={role.start.dateTime ?? role.start}>
-                  {role.start.label ?? role.start}
-                </time>{' '}
-                <span aria-hidden="true">—</span>{' '}
-                <time dateTime={role.end.dateTime ?? role.end}>
-                  {role.end.label ?? role.end}
-                </time>
-              </dd>
-            </dl>
-          </li>
-        ))}
+                <Image src={role.logo} alt="" className="h-7 w-7" height={18} width={18} unoptimized={true} />
+              </Link>
+              <dl className="flex flex-auto flex-wrap gap-x-2">
+                <dt className="sr-only">Compañía</dt>
+                <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                  <div className="flex justify-between items-center">
+                    <Link
+                      href={role.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-all duration-200 ease-in-out hover:scale-105"
+                    >
+                      {role.company}
+                    </Link>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                      {role.flag} {role.location}
+                    </span>
+                  </div>
+                </dd>
+                <dt className="sr-only">Rol</dt>
+                <dd className="text-xs text-zinc-500 dark:text-zinc-400">
+                  {role.title}
+                </dd>
+                <dt className="sr-only">Date</dt>
+                <dd
+                  className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                  aria-label={`${startLabel} until ${endLabel}`}
+                >
+                  <time dateTime={startDateTime}>
+                    {startLabel}
+                  </time>{' '}
+                  <span aria-hidden="true">—</span>{' '}
+                  <time dateTime={endDateTime}>
+                    {endLabel}
+                  </time>
+                </dd>
+              </dl>
+            </li>
+          )
+        })}
       </ol>
     </div>
   )
 }
 
 function Education() {
-  let resume = [
+  const resume: Role[] = [
     {
       company: 'Politecnico di Torino',
       title: 'MSc. Mangement & Engineering',
@@ -336,66 +376,75 @@ function Education() {
         <span className="ml-3">Educación</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
-          <li key={roleIndex} className="flex gap-4">
-            <Link 
-              href={role.link} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 hover:scale-110 transition-all duration-200 ease-in-out"
-            >
-              <Image src={role.logo} alt="" className="h-7 w-7 rounded-full object-cover" />
-            </Link>
-            <dl className="flex flex-auto flex-wrap gap-x-2">
-              <dt className="sr-only">Lugar</dt>
-              <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                <div className="flex justify-between items-center">
-                  <Link 
-                    href={role.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-all duration-200 ease-in-out hover:scale-105"
-                  >
-                    {role.company}
-                  </Link>
-                  <span className="text-xs text-zinc-500 dark:text-zinc-400">
-                    {role.flag} {role.location}
-                  </span>
-                </div>
-              </dd>
-              <dt className="sr-only">Title</dt>
-              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-                {role.title}
-              </dd>
-              <dt className="sr-only">Date</dt>
-              <dd
-                className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                aria-label={`${role.start.label ?? role.start} until ${
-                  role.end.label ?? role.end
-                }`}
+        {resume.map((role, roleIndex) => {
+          const startLabel = typeof role.start === 'string' ? role.start : role.start.label ?? ''
+          const startDateTime = typeof role.start === 'string' ? role.start : String(role.start.dateTime ?? role.start.label ?? '')
+          const endLabel = typeof role.end === 'string' ? role.end : role.end.label ?? ''
+          const endDateTime = typeof role.end === 'string' ? role.end : String(role.end.dateTime ?? role.end.label ?? '')
+
+          return (
+            <li key={roleIndex} className="flex gap-4">
+              <Link
+                href={role.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 hover:scale-110 transition-all duration-200 ease-in-out"
               >
-                <time dateTime={role.start.dateTime ?? role.start}>
-                  {role.start.label ?? role.start}
-                </time>{' '}
-                <span aria-hidden="true">—</span>{' '}
-                <time dateTime={role.end.dateTime ?? role.end}>
-                  {role.end.label ?? role.end}
-                </time>
-              </dd>
-            </dl>
-          </li>
-        ))}
+                <Image src={role.logo} alt="" className="h-7 w-7 rounded-full object-cover" />
+              </Link>
+              <dl className="flex flex-auto flex-wrap gap-x-2">
+                <dt className="sr-only">Lugar</dt>
+                <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                  <div className="flex justify-between items-center">
+                    <Link
+                      href={role.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-all duration-200 ease-in-out hover:scale-105"
+                    >
+                      {role.company}
+                    </Link>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                      {role.flag} {role.location}
+                    </span>
+                  </div>
+                </dd>
+                <dt className="sr-only">Title</dt>
+                <dd className="text-xs text-zinc-500 dark:text-zinc-400">
+                  {role.title}
+                </dd>
+                <dt className="sr-only">Date</dt>
+                <dd
+                  className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                  aria-label={`${startLabel} until ${endLabel}`}
+                >
+                  <time dateTime={startDateTime}>
+                    {startLabel}
+                  </time>{' '}
+                  <span aria-hidden="true">—</span>{' '}
+                  <time dateTime={endDateTime}>
+                    {endLabel}
+                  </time>
+                </dd>
+              </dl>
+            </li>
+          )
+        })}
       </ol>
     </div>
   )
 }
 
-export default function Home({ articles }) {
+interface HomeProps {
+  articles: ArticlePreview[]
+}
+
+export default function Home({ articles }: HomeProps) {
   return (
     <>
       <SEO
         title="Nicolás Vega - Software Engineer"
-        description="Hola 👋! Soy Nico, ingeniero en software y cofundador de algunas startups. Siempre haciendo o aprendiendo algo distinto. Gracias por la visita!"
+        description="Hola! Soy Nico, ingeniero en software y cofundador de algunas startups. Siempre haciendo o aprendiendo algo distinto. Gracias por la visita!"
         url="https://nicovega.dev"
         tags={['software engineer', 'tech lead', 'startup founder', 'carvuk', 'xepelin', 'mercadolibre', 'vodafone', 'huawei', 'chile', 'technology']}
       />
@@ -405,7 +454,7 @@ export default function Home({ articles }) {
             Nicolás Vega
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400" role="doc-subtitle">
-            Hola 👋! Soy Nico, ingeniero y cofundador de Carvuk.com. Siempre estoy haciendo algo o aprendiendo algo distinto. ¡Gracias por la visita!
+            Hola! Soy Nico, ingeniero y cofundador de Carvuk.com. Siempre estoy haciendo algo o aprendiendo algo distinto. ¡Gracias por la visita!
           </p>
           <nav className="mt-6 flex gap-6" aria-label="Social media links">
             <SocialLink
@@ -448,14 +497,16 @@ export default function Home({ articles }) {
   )
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   if (process.env.NODE_ENV === 'production') {
     await generateRssFeed()
   }
 
+  const articles = await getAllArticles()
+
   return {
     props: {
-      articles: (await getAllArticles())
+      articles: articles
         .slice(0, 4)
         .map(({ component, ...meta }) => meta),
     },

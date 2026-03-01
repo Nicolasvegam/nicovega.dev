@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
+import type { SVGProps, ComponentType, ReactNode } from 'react'
 
 import { Container } from '@/components/Container'
 import {
@@ -10,7 +11,14 @@ import {
 import portraitImage from '@/images/portrait.jpg'
 import SEO from '@/components/SEO'
 
-function SocialLink({ className, href, children, icon: Icon }) {
+interface SocialLinkProps {
+  className?: string
+  href: string
+  children: ReactNode
+  icon: ComponentType<SVGProps<SVGSVGElement>>
+}
+
+function SocialLink({ className, href, children, icon: Icon }: SocialLinkProps) {
   return (
     <li className={clsx(className, 'flex')}>
       <Link
@@ -24,7 +32,7 @@ function SocialLink({ className, href, children, icon: Icon }) {
   )
 }
 
-function MailIcon(props) {
+function MailIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
@@ -38,7 +46,7 @@ function MailIcon(props) {
 export default function About() {
   return (
     <>
-      <SEO 
+      <SEO
         title="Sobre mí - Nicolás Vega"
         description="Acá puedes conocer un poco más sobre mí."
         url="https://nicovega.dev/about"

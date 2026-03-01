@@ -2,8 +2,13 @@ import Link from 'next/link'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { wishlistData } from '@/data/booksData'
 import SEO from '@/components/SEO'
+import type { WishlistBook } from '@/types/books'
 
-function WishlistBook({ book }) {
+interface WishlistBookProps {
+  book: WishlistBook
+}
+
+function WishlistBookComponent({ book }: WishlistBookProps) {
   return (
     <li className="group relative">
       <div className="aspect-[3/4] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800">
@@ -57,7 +62,7 @@ export default function Wishlist() {
           className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
         >
           {wishlistData.map((book) => (
-            <WishlistBook key={book.id} book={book} />
+            <WishlistBookComponent key={book.id} book={book} />
           ))}
         </ul>
       </SimpleLayout>

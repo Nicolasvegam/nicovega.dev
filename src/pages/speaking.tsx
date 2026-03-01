@@ -1,10 +1,16 @@
 import Head from 'next/head'
+import type { ReactNode } from 'react'
 
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
 
-function SpeakingSection({ children, ...props }) {
+interface SpeakingSectionProps {
+  title: string
+  children: ReactNode
+}
+
+function SpeakingSection({ children, ...props }: SpeakingSectionProps) {
   return (
     <Section {...props}>
       <div className="space-y-16">{children}</div>
@@ -12,7 +18,15 @@ function SpeakingSection({ children, ...props }) {
   )
 }
 
-function Appearance({ title, description, event, cta, href }) {
+interface AppearanceProps {
+  title: string
+  description: string
+  event: string
+  cta: string
+  href: string
+}
+
+function Appearance({ title, description, event, cta, href }: AppearanceProps) {
   return (
     <Card as="article">
       <Card.Title as="h3" href={href}>
@@ -35,8 +49,8 @@ export default function Speaking() {
           content="Algo de contenido anda por ahí."
         />
       </Head>
-      <SimpleLayout 
-        title="A veces hago Contenido 🎤"
+      <SimpleLayout
+        title="A veces hago Contenido"
         intro="Creo que no soy muy bueno, pero se puede mejorar."
       >
         <div className="space-y-20">
@@ -68,7 +82,7 @@ export default function Speaking() {
           <SpeakingSection title="Youtube">
             <Appearance
               href="https://www.youtube.com/watch?v=QuBqFgd-cvc&t=160s"
-              title="Automatización de correos con Google y ChatGPT"
+              title="Automatización de correos con Google y ChatGPT"
               description="Te enseño cómo automatizar correos con Google y ChatGPT sin saber programar."
               event="Nicolás Vega"
               cta="Ver video"
