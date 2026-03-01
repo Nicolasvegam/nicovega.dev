@@ -1,8 +1,10 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import Image from 'next/image'
+import type { Book } from '@/types/books'
+import type { SVGProps } from 'react'
 
-function CloseIcon(props) {
+function CloseIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
@@ -17,7 +19,11 @@ function CloseIcon(props) {
   )
 }
 
-function StarRating({ rating }) {
+interface StarRatingProps {
+  rating: number
+}
+
+function StarRating({ rating }: StarRatingProps) {
   return (
     <div className="flex">
       {[...Array(5)].map((_, i) => (
@@ -36,7 +42,13 @@ function StarRating({ rating }) {
   )
 }
 
-export default function BookReview({ book, isOpen, onClose }) {
+interface BookReviewProps {
+  book?: Book
+  isOpen: boolean
+  onClose: () => void
+}
+
+export default function BookReview({ book, isOpen, onClose }: BookReviewProps) {
   if (!book || !book.review) return null
 
   return (
@@ -76,59 +88,61 @@ export default function BookReview({ book, isOpen, onClose }) {
                     <CloseIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
-                
+
                 <div className="sm:flex sm:items-start">
                   <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
                     <Dialog.Title as="h3" className="text-lg font-semibold leading-6 text-gray-900 dark:text-zinc-100">
                       Reseña de libro
                     </Dialog.Title>
-                    
+
                     <div className="mt-4">
                       <div className="flex flex-col sm:flex-row gap-4">
                         <div className="flex-shrink-0 mx-auto sm:mx-0">
                           <Image
                             src={book.image}
                             alt={book.title}
+                            width={128}
+                            height={192}
                             className="h-48 w-32 rounded-lg object-cover"
                           />
                         </div>
-                        
+
                         <div className="flex-1">
                           <h4 className="text-xl font-bold text-gray-900 dark:text-zinc-100">{book.title}</h4>
                           <p className="text-sm text-gray-600 dark:text-zinc-400 mb-2">{book.author}</p>
                           <StarRating rating={book.rating} />
-                          
+
                           <div className="mt-4 space-y-4">
                             <div className="prose prose-sm dark:prose-invert max-w-none">
                               <p className="text-gray-700 dark:text-zinc-300">{book.review.summary}</p>
                             </div>
-                            
+
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                               <div>
                                 <h5 className="font-semibold text-gray-900 dark:text-zinc-100">¿Me gustó?</h5>
                                 <p className="text-gray-700 dark:text-zinc-300">{book.review.liked}</p>
                               </div>
-                              
+
                               <div>
                                 <h5 className="font-semibold text-gray-900 dark:text-zinc-100">¿De qué se trata?</h5>
                                 <p className="text-gray-700 dark:text-zinc-300">{book.review.about}</p>
                               </div>
-                              
+
                               <div>
                                 <h5 className="font-semibold text-gray-900 dark:text-zinc-100">¿Por qué lo compré?</h5>
                                 <p className="text-gray-700 dark:text-zinc-300">{book.review.whyBought}</p>
                               </div>
-                              
+
                               <div>
                                 <h5 className="font-semibold text-gray-900 dark:text-zinc-100">Parte favorita</h5>
                                 <p className="text-gray-700 dark:text-zinc-300">{book.review.favoritePart}</p>
                               </div>
-                              
+
                               <div>
                                 <h5 className="font-semibold text-gray-900 dark:text-zinc-100">Le puede gustar a</h5>
                                 <p className="text-gray-700 dark:text-zinc-300">{book.review.goodFor}</p>
                               </div>
-                              
+
                               <div>
                                 <h5 className="font-semibold text-gray-900 dark:text-zinc-100">Le puede disgustar a</h5>
                                 <p className="text-gray-700 dark:text-zinc-300">{book.review.notGoodFor}</p>
@@ -140,7 +154,7 @@ export default function BookReview({ book, isOpen, onClose }) {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
                   <button
                     type="button"

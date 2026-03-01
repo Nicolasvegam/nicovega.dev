@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import { Card } from '@/components/Card'
+import type { Book as BookType } from '@/types/books'
+import type { SVGProps } from 'react'
 
-function StarIcon(props) {
+function StarIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 20 20" aria-hidden="true" {...props}>
       <path
@@ -13,7 +15,12 @@ function StarIcon(props) {
   )
 }
 
-export function Book({ book, className }) {
+interface BookProps {
+  book: BookType
+  className?: string
+}
+
+export function Book({ book, className }: BookProps) {
   return (
     <Card as="li" className={className}>
       <div className="mb-3 flex justify-center">

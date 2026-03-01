@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import clsx from 'clsx'
+import type { StaticImageData } from 'next/image'
 
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
@@ -7,8 +8,12 @@ import image3 from '@/images/photos/image-3.jpg'
 import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
 
-export default function Photos({ images = [image1, image2, image3, image4, image5] }) {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+interface PhotosProps {
+  images?: StaticImageData[]
+}
+
+export default function Photos({ images = [image1, image2, image3, image4, image5] }: PhotosProps) {
+  const rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
 
   return (
     <div className="mt-16 sm:mt-20">
@@ -32,4 +37,4 @@ export default function Photos({ images = [image1, image2, image3, image4, image
       </div>
     </div>
   )
-} 
+}

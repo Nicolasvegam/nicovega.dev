@@ -1,8 +1,14 @@
 import Link from 'next/link'
+import type { ReactNode } from 'react'
 
 import { Container } from '@/components/Container'
 
-function NavLink({ href, children }) {
+interface NavLinkProps {
+  href: string
+  children: ReactNode
+}
+
+function NavLink({ href, children }: NavLinkProps) {
   return (
     <Link
       href={href}
@@ -26,7 +32,7 @@ export function Footer() {
                 <NavLink href="/speaking">Contenido</NavLink>
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                &copy; {new Date().getFullYear()} Nicolás Vega. 
+                &copy; {new Date().getFullYear()} Nicolás Vega.
               </p>
             </div>
           </Container.Inner>

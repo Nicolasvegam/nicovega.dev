@@ -1,6 +1,7 @@
 import Link from 'next/link'
+import type { SVGProps } from 'react'
 
-function ChevronRight(props) {
+function ChevronRight(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
       <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
@@ -8,8 +9,17 @@ function ChevronRight(props) {
   )
 }
 
-export default function Breadcrumb({ items }) {
-  const truncateText = (text, maxLength = 15) => {
+export interface BreadcrumbItem {
+  name: string
+  href: string
+}
+
+interface BreadcrumbProps {
+  items: BreadcrumbItem[]
+}
+
+export default function Breadcrumb({ items }: BreadcrumbProps) {
+  const truncateText = (text: string, maxLength: number = 15): string => {
     if (text.length <= maxLength) return text
     return text.substring(0, maxLength) + '...'
   }
@@ -19,7 +29,7 @@ export default function Breadcrumb({ items }) {
       <ol className="flex items-center space-x-1 sm:space-x-2 min-w-0">
         {items.map((item, index) => {
           const isLast = index === items.length - 1
-          
+
           return (
             <li key={item.name} className="flex items-center min-w-0">
               {index > 0 && (

@@ -2,8 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/Button'
 import { booksData } from '@/data/booksData'
+import type { SVGProps } from 'react'
 
-function ArrowDownIcon(props) {
+function ArrowDownIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
       <path
@@ -43,6 +44,7 @@ export default function MiLibreria() {
               alt={`${book.title} by ${book.author}`}
               className="absolute inset-0 h-full w-full object-cover"
               sizes="(min-width: 768px) 20vw, (min-width: 640px) 33vw, 50vw"
+              fill
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200" />
             <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
