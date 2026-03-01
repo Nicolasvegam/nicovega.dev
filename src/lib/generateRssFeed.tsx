@@ -4,15 +4,20 @@ import { mkdir, writeFile } from 'fs/promises'
 
 import { getAllArticles } from './getAllArticles'
 
-export async function generateRssFeed() {
-  let articles = await getAllArticles()
-  let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  let author = {
+interface Author {
+  name: string
+  email: string
+}
+
+export async function generateRssFeed(): Promise<void> {
+  const articles = await getAllArticles()
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nicovega.dev'
+  const author: Author = {
     name: 'Spencer Sharp',
     email: 'spencer@planetaria.tech',
   }
 
-  let feed = new Feed({
+  const feed = new Feed({
     title: author.name,
     description: 'Your blog description',
     author,
@@ -27,10 +32,11 @@ export async function generateRssFeed() {
     },
   })
 
-  for (let article of articles) {
-    let url = `${siteUrl}/articles/${article.slug}`
-    let html = ReactDOMServer.renderToStaticMarkup(
-      <article.component isRssFeed />
+  for (const article of articles) {
+    const url = `${siteUrl}/articles/${article.slug}`
+    const ArticleComponent = article.component
+    const html = ReactDOMServer.renderToStaticMarkup(
+      <ArticleComponent isRssFeed />
     )
 
     feed.addItem({

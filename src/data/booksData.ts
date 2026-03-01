@@ -1,3 +1,5 @@
+import type { Book, WishlistBook } from '@/types/books'
+
 import book1 from '@/images/books/book-1-shoe-dog.webp'
 import book2 from '@/images/books/book-2-steve-jobs.webp'
 import book3 from '@/images/books/book-3-sacred-seven.jpg'
@@ -16,10 +18,7 @@ import book15 from '@/images/books/book-15-creativity-inc.webp'
 import book16 from '@/images/books/book-16-como-ganar-amigos.jpeg'
 import book17 from '@/images/books/book-17-atomic-habits.jpg'
 
-// Placeholder images for books that need to be added
-const placeholderImage = book2
-
-export const booksData = [
+export const booksData: Book[] = [
   {
     id: 1,
     title: 'Steve Jobs',
@@ -328,7 +327,7 @@ export const booksData = [
   }
 ]
 
-export const wishlistData = [
+export const wishlistData: WishlistBook[] = [
   {
     id: 1,
     title: 'High Output Management',
