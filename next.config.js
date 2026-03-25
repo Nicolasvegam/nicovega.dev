@@ -12,7 +12,7 @@ module.exports = withMDX({
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactStrictMode: true,
   images: {
-    domains: ['nicovega.dev', 'images.unsplash.com', 'm.media-amazon.com'], 
+    domains: ['nicovega.dev', 'images.unsplash.com', 'm.media-amazon.com', 'covers.openlibrary.org'],
   },
   async headers() {
     return [
