@@ -325,6 +325,23 @@ export const booksData = [
       goodFor: 'Emprendedores, product managers y cualquiera en tech.',
       notGoodFor: 'Quienes busquen solo una perspectiva de Silicon Valley.'
     }
+  },
+  {
+    id: 19,
+    title: 'En los dominios de Amazon',
+    author: 'Jean-Baptiste Malet',
+    image: 'https://covers.openlibrary.org/b/isbn/9788492755981-L.jpg',
+    rating: 3,
+    slug: 'en-los-dominios-de-amazon',
+    review: {
+      summary: 'Me esperaba más contenido considerando que es una infiltración dentro de Amazon. Las entrevistas que consigue al final no le dan los testimonios ni las cuñas que necesita, y se nota cierta hipérbole en el contexto general. Dicho eso, destaco cómo describe paso a paso la estructura del trabajo diario y lo estandarizado que está todo. Se nota que es un trabajo duro de investigación, aunque el resultado se queda un poco corto.',
+      liked: 'Está bien',
+      about: 'Un periodista se infiltra como trabajador en un almacén de Amazon para revelar las condiciones laborales desde adentro.',
+      whyBought: 'Curiosidad por conocer el funcionamiento interno de Amazon.',
+      favoritePart: 'La descripción detallada de la rutina diaria y la estandarización del trabajo en los almacenes.',
+      goodFor: 'Quienes quieran entender cómo funciona Amazon por dentro.',
+      notGoodFor: 'Quienes esperen revelaciones impactantes o un relato más profundo.'
+    }
   }
 ]
 
