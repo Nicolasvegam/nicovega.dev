@@ -326,6 +326,23 @@ export const booksData: Book[] = [
     }
   },
   {
+    id: 20,
+    title: 'El Arte de la Guerra',
+    author: 'Sun Tzu',
+    image: 'https://covers.openlibrary.org/b/isbn/0140439196-L.jpg',
+    rating: 2,
+    slug: 'el-arte-de-la-guerra',
+    review: {
+      summary: 'No logré entender bien la narración. Es como si alguien hiciera un resumen del libro y te contara lo que escribió el autor, quizás fue la edición que compré. Al final fue muy difícil de leer y enganchar. Lo que sí rescato es que te da una mirada distinta de cómo se trata la guerra y principios básicos que también aplican a momentos críticos que a veces tenemos en la vida.',
+      liked: 'No mucho',
+      about: 'Un tratado militar escrito en la antigua China con principios estratégicos sobre el arte de la guerra.',
+      whyBought: 'Curiosidad por el clásico de estrategia.',
+      favoritePart: 'Los principios básicos que se pueden aplicar a momentos críticos de la vida.',
+      goodFor: 'Quienes busquen principios de estrategia aplicables más allá de lo militar.',
+      notGoodFor: 'Quienes busquen una lectura entretenida o narrativa fluida.'
+    }
+  },
+  {
     id: 19,
     title: 'En los dominios de Amazon',
     author: 'Jean-Baptiste Malet',
@@ -527,11 +544,4 @@ export const wishlistData: WishlistBook[] = [
     image: 'https://m.media-amazon.com/images/I/91YfNb49PLL._AC_UF1000,1000_QL80_.jpg',
     readingNow: true
   },
-  {
-    id: 32,
-    title: 'El Arte de la Guerra',
-    author: 'Sun Tzu',
-    image: 'https://covers.openlibrary.org/b/isbn/0140439196-L.jpg',
-    readingNow: true
-  }
 ]
