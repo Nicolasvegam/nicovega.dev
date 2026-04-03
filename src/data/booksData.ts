@@ -326,6 +326,23 @@ export const booksData: Book[] = [
     }
   },
   {
+    id: 21,
+    title: 'Let My People Go Surfing',
+    author: 'Yvon Chouinard',
+    image: 'https://covers.openlibrary.org/b/isbn/0143037838-L.jpg',
+    rating: 5,
+    slug: 'let-my-people-go-surfing',
+    review: {
+      summary: 'Muy buen libro, lo leí muy rápido en dos o tres días. La primera parte es espectacular: la historia del autor es increíble. El ideal por el cual se construye Patagonia también es increíble y sigue un poco la lógica del software y la filosofía Y Combinator, donde si tienes el mejor producto, probablemente va a crecer a partir de eso. Y eso fue lo que les fue pasando a los dueños de Patagonia, que a partir de los deportes que iban practicando fueron confeccionando distintas ropas e implementos. La empresa fue creciendo muy rápido y, para hacer todo de forma orgánica sin ir destruyendo el planeta, tenían que operar como lo hace la naturaleza. La forma de inspeccionar y cuestionar todos sus procesos, siendo el tope de línea en calidad, demuestra que se pueden hacer negocios de otra forma. Lo único que no me gustó tanto es que de cierta parte en adelante habla mucho de filosofía y datos duros. Quizás en el año en que se escribió el libro era necesario convencer más al lector, pero hoy es bastante obvio. Me hubiera gustado que siguiera contando su historia y distintas anécdotas. El autor es bien extremo y eso me llamó mucho la atención.',
+      liked: 'Mucho, lo leí en dos o tres días',
+      about: 'La historia de cómo Yvon Chouinard fundó Patagonia y construyó una empresa que prioriza el medio ambiente sin sacrificar la calidad ni el crecimiento.',
+      whyBought: 'Curiosidad por la historia de Patagonia y su filosofía empresarial.',
+      favoritePart: 'La primera parte con la historia personal del autor y cómo los deportes que practicaba fueron dando origen a los productos de Patagonia.',
+      goodFor: 'Emprendedores, amantes del outdoor y quienes busquen una forma distinta de hacer negocios.',
+      notGoodFor: 'Quienes busquen solo anécdotas y no quieran leer sobre filosofía ecológica y datos duros.'
+    }
+  },
+  {
     id: 19,
     title: 'En los dominios de Amazon',
     author: 'Jean-Baptiste Malet',
@@ -453,12 +470,6 @@ export const wishlistData: WishlistBook[] = [
     title: 'The Brand Gap',
     author: 'Marty Neumeier',
     image: 'https://covers.openlibrary.org/b/isbn/0321348109-L.jpg'
-  },
-  {
-    id: 20,
-    title: 'Let My People Go Surfing',
-    author: 'Yvon Chouinard',
-    image: 'https://covers.openlibrary.org/b/isbn/0143037838-L.jpg'
   },
   {
     id: 21,
