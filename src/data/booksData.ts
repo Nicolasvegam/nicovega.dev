@@ -358,6 +358,23 @@ export const booksData: Book[] = [
       goodFor: 'Quienes quieran entender cómo funciona Amazon por dentro.',
       notGoodFor: 'Quienes esperen revelaciones impactantes o un relato más profundo.'
     }
+  },
+  {
+    id: 20,
+    title: 'Let My People Go Surfing',
+    author: 'Yvon Chouinard',
+    image: 'https://covers.openlibrary.org/b/isbn/0143037838-L.jpg',
+    rating: 4,
+    slug: 'let-my-people-go-surfing',
+    review: {
+      summary: 'La primera parte es extraordinaria. La vida de Yvon Chouinard es una locura: alguien que vivía puramente del deporte, low cost, durmiendo en parques y bajo arbustos, y que a partir de esa pasión construyó Patagonia. Se nota la pasión detrás de la empresa y de los pilares culturales que se formaron desde ahí. En la última parte el libro se va más hacia lo ecológico con mucho dato duro, que quizás hoy ya no es tan necesario para convencer al lector de que hay que actuar. Me hubiera gustado que contara más historias de sus aventuras alrededor del planeta, donde hacía deporte extremo y sacaba ideas para mejorar Patagonia, tanto en producto como en procesos e impacto social y político.',
+      liked: 'Mucho',
+      about: 'La historia del fundador de Patagonia y la filosofía empresarial detrás de una de las marcas más auténticas del mundo.',
+      whyBought: 'Por el interés en Patagonia como empresa y su enfoque en producto e impacto.',
+      favoritePart: 'La historia personal de Chouinard y cómo su estilo de vida moldeó la cultura de Patagonia.',
+      goodFor: 'Emprendedores que quieran ver cómo la pasión y los valores pueden guiar una empresa.',
+      notGoodFor: 'Quienes busquen solo datos ecológicos actualizados o una biografía más extensa.'
+    }
   }
 ]
 
@@ -470,12 +487,6 @@ export const wishlistData: WishlistBook[] = [
     title: 'The Brand Gap',
     author: 'Marty Neumeier',
     image: 'https://covers.openlibrary.org/b/isbn/0321348109-L.jpg'
-  },
-  {
-    id: 20,
-    title: 'Let My People Go Surfing',
-    author: 'Yvon Chouinard',
-    image: 'https://covers.openlibrary.org/b/isbn/0143037838-L.jpg'
   },
   {
     id: 21,
