@@ -340,7 +340,7 @@ function Education() {
   const resume: Role[] = [
     {
       company: 'Politecnico di Torino',
-      title: 'MSc. Mangement & Engineering',
+      title: 'MSc. Management & Engineering',
       logo: logoPoli,
       location: 'Turín, Italia',
       flag: '🇮🇹',
@@ -468,17 +468,17 @@ export default function Home({ articles }: HomeProps) {
           <nav className="animate-fade-up animation-delay-300 mt-6 flex gap-6" aria-label="Social media links">
             <SocialLink
               href="https://github.com/nicolasvegam"
-              aria-label="Sígueme on GitHub"
+              aria-label="Sígueme en GitHub"
               icon={GitHubIcon}
             />
             <SocialLink
               href="https://instagram.com/nicovega.dev"
-              aria-label="Sígueme on Instagram"
+              aria-label="Sígueme en Instagram"
               icon={InstagramIcon}
             />
             <SocialLink
               href="https://www.linkedin.com/in/nicolasvegam/"
-              aria-label="Sígueme on LinkedIn"
+              aria-label="Sígueme en LinkedIn"
               icon={LinkedInIcon}
             />
           </nav>
