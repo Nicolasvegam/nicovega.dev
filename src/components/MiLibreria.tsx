@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/Button'
 import { booksData } from '@/data/booksData'
+import { useTilt } from '@/lib/useTilt'
 import type { SVGProps } from 'react'
 
 function ArrowDownIcon(props: SVGProps<SVGSVGElement>) {
@@ -20,6 +21,8 @@ function ArrowDownIcon(props: SVGProps<SVGSVGElement>) {
 export default function MiLibreria() {
   // Show only the first 5 books
   const displayBooks = booksData.slice(0, 5)
+  // Shared handlers: each cover tilts via event.currentTarget
+  const { onMouseMove, onMouseLeave } = useTilt<HTMLAnchorElement>()
 
   return (
     <div className="mt-16 sm:mt-20">
@@ -38,6 +41,8 @@ export default function MiLibreria() {
             key={book.id}
             href={`/books/${book.slug}`}
             className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:scale-105 transition-transform duration-200 flex-shrink-0 w-32 md:w-auto"
+            onMouseMove={onMouseMove}
+            onMouseLeave={onMouseLeave}
           >
             <Image
               src={book.image}
