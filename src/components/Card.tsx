@@ -100,7 +100,7 @@ function CardCta({ children }: CardCtaProps) {
       className="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
     >
       {children}
-      <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
+      <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current transition-transform duration-200 ease-out group-hover:translate-x-1" />
     </div>
   )
 }

@@ -22,9 +22,10 @@ export default function Photos({ images = [image1, image2, image3, image4, image
           <div
             key={image.src}
             className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+              'animate-fade-up relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 transition-all duration-300 ease-out hover:rotate-0 hover:scale-105 hover:shadow-xl hover:shadow-zinc-800/20 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
               rotations[imageIndex % rotations.length]
             )}
+            style={{ animationDelay: `${150 + imageIndex * 100}ms` }}
           >
             <Image
               src={image}
