@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Card } from '@/components/Card'
+import { useTilt } from '@/lib/useTilt'
 import type { Book as BookType } from '@/types/books'
 import type { SVGProps } from 'react'
 
@@ -21,8 +22,20 @@ interface BookProps {
 }
 
 export function Book({ book, className }: BookProps) {
+  // Card.Link overlays the whole card, so we listen on the <li> and tilt
+  // the cover through the ref
+  const { targetRef, onMouseMove, onMouseLeave } = useTilt<
+    HTMLDivElement,
+    HTMLLIElement
+  >()
+
   return (
-    <Card as="li" className={className}>
+    <Card
+      as="li"
+      className={className}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+    >
       <div className="mb-3 flex justify-center">
         {[...Array(5)].map((_, i) => (
           <StarIcon
@@ -35,7 +48,10 @@ export function Book({ book, className }: BookProps) {
           />
         ))}
       </div>
-      <div className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800">
+      <div
+        ref={targetRef}
+        className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800"
+      >
         <Image
           src={book.image}
           alt={`${book.title} by ${book.author}`}
