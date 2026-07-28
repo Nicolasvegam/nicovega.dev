@@ -5,6 +5,7 @@ import type { ReactNode, SVGProps } from 'react'
 import { Container } from '@/components/Container'
 import { formatDate } from '@/lib/formatDate'
 import { Prose } from '@/components/Prose'
+import { ReadingProgress } from '@/components/ReadingProgress'
 import type { ArticleMeta } from '@/types/articles'
 
 function ArrowLeftIcon(props: SVGProps<SVGSVGElement>) {
@@ -45,6 +46,7 @@ export function ArticleLayout({
         <title>{`${meta.title} - Nicolás Vega`}</title>
         <meta name="description" content={meta.description} />
       </Head>
+      <ReadingProgress />
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
           <div className="mx-auto max-w-2xl">
