@@ -516,7 +516,8 @@ export const wishlistData: WishlistBook[] = [
     id: 25,
     title: 'The Creative Act: A Way of Being',
     author: 'Rick Rubin',
-    image: 'https://covers.openlibrary.org/b/isbn/0593652886-L.jpg'
+    image: 'https://covers.openlibrary.org/b/isbn/0593652886-L.jpg',
+    readingNow: true
   },
   {
     id: 26,
