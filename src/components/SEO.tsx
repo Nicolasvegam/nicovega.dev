@@ -55,7 +55,7 @@ interface WebsiteStructuredData extends StructuredDataBase {
 export default function SEO({
   title = 'Nicolás Vega - Portfolio',
   description = 'Personal website and portfolio of Nicolás Vega',
-  image = '/og-image.jpg',
+  image = 'https://nicovega.dev/api/og',
   url = 'https://nicovega.dev',
   type = 'website',
   publishedTime,
