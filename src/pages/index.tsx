@@ -78,6 +78,29 @@ function BriefcaseIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
+function AcademicCapIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <path
+        d="M3.75 9.25 12 4.75l8.25 4.5L12 13.75l-8.25-4.5Z"
+        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
+      />
+      <path
+        d="M6.75 11.75v4c0 1.657 2.35 3 5.25 3s5.25-1.343 5.25-3v-4M20.25 9.25v4.5"
+        className="stroke-zinc-400 dark:stroke-zinc-500"
+      />
+    </svg>
+  )
+}
+
 function ArrowDownIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
@@ -282,29 +305,40 @@ function Resume() {
           const startDateTime = typeof role.start === 'string' ? role.start : String(role.start.dateTime ?? role.start.label ?? '')
           const endLabel = typeof role.end === 'string' ? role.end : role.end.label ?? ''
           const endDateTime = typeof role.end === 'string' ? role.end : String(role.end.dateTime ?? role.end.label ?? '')
+          const hasLink = role.link !== '#'
 
           return (
             <li key={roleIndex} className="flex gap-4">
-              <Link
-                href={role.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 hover:scale-110 transition-all duration-200 ease-in-out"
-              >
-                <Image src={role.logo} alt="" className="h-7 w-7" height={18} width={18} unoptimized={true} />
-              </Link>
+              {hasLink ? (
+                <Link
+                  href={role.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 hover:scale-110 transition-all duration-200 ease-in-out"
+                >
+                  <Image src={role.logo} alt="" className="h-7 w-7" height={18} width={18} unoptimized={true} />
+                </Link>
+              ) : (
+                <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                  <Image src={role.logo} alt="" className="h-7 w-7" height={18} width={18} unoptimized={true} />
+                </div>
+              )}
               <dl className="flex flex-auto flex-wrap gap-x-2">
                 <dt className="sr-only">Compañía</dt>
                 <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
                   <div className="flex justify-between items-center">
-                    <Link
-                      href={role.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-all duration-200 ease-in-out hover:scale-105"
-                    >
-                      {role.company}
-                    </Link>
+                    {hasLink ? (
+                      <Link
+                        href={role.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-all duration-200 ease-in-out hover:scale-105"
+                      >
+                        {role.company}
+                      </Link>
+                    ) : (
+                      <span>{role.company}</span>
+                    )}
                     <span className="text-xs text-zinc-500 dark:text-zinc-400">
                       {role.flag} {role.location}
                     </span>
@@ -373,7 +407,7 @@ function Education() {
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <BriefcaseIcon className="h-6 w-6 flex-none" />
+        <AcademicCapIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">Educación</span>
       </h2>
       <ol className="mt-6 space-y-4">
