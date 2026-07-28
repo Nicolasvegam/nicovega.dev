@@ -155,30 +155,33 @@ function Newsletter() {
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <MailIcon className="h-6 w-6 flex-none" />
+        <InstagramIcon className="h-6 w-6 flex-none fill-zinc-400 dark:fill-zinc-500" />
         <span className="ml-3">Sigue el contenido</span>
       </h2>
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Cuando publico un artículo nuevo aparece de inmediato en el feed RSS
-        del sitio. Copia el link y pégalo en tu lector favorito, sin correos
-        ni spam.
+        Subo contenido nuevo en Instagram: proyectos, aprendizajes y lo que
+        estoy construyendo. Sígueme para no perderte nada.
       </p>
       <div className="mt-6">
-        <Button type="button" onClick={copyFeedUrl} className="w-full">
-          {copied ? '¡Link copiado! ✓' : 'Copiar link del feed RSS'}
-        </Button>
-      </div>
-      <p className="mt-4 text-xs text-zinc-500 dark:text-zinc-400">
-        ¿Nuevo en esto?{' '}
         <a
-          href="https://es.wikipedia.org/wiki/RSS"
+          href="https://instagram.com/nicovega.dev"
           target="_blank"
           rel="noopener noreferrer"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-zinc-800 py-2 px-3 text-sm font-semibold text-zinc-100 outline-offset-2 transition hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 active:transition-none dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70"
+        >
+          Seguir en Instagram
+        </a>
+      </div>
+      <p className="mt-4 text-xs text-zinc-500 dark:text-zinc-400">
+        ¿Prefieres los artículos en tu lector?{' '}
+        <button
+          type="button"
+          onClick={copyFeedUrl}
           className="font-medium text-teal-500 transition hover:text-teal-600 dark:hover:text-teal-400"
         >
-          Qué es RSS
-        </a>
-        . ¿Prefieres el correo? Escríbeme a{' '}
+          {copied ? '¡Feed RSS copiado! ✓' : 'Copia el feed RSS'}
+        </button>
+        . ¿O el correo? Escríbeme a{' '}
         <a
           href="mailto:hola@nicovega.dev"
           className="font-medium text-teal-500 transition hover:text-teal-600 dark:hover:text-teal-400"
