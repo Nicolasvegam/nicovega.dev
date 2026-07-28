@@ -407,8 +407,7 @@ export const wishlistData: WishlistBook[] = [
     id: 5,
     title: 'Made to Stick',
     author: 'Chip Heath & Dan Heath',
-    image: 'https://covers.openlibrary.org/b/isbn/1400064287-L.jpg',
-    readingNow: true
+    image: 'https://covers.openlibrary.org/b/isbn/1400064287-L.jpg'
   },
   {
     id: 6,
@@ -516,7 +515,8 @@ export const wishlistData: WishlistBook[] = [
     id: 25,
     title: 'The Creative Act: A Way of Being',
     author: 'Rick Rubin',
-    image: 'https://covers.openlibrary.org/b/isbn/0593652886-L.jpg'
+    image: 'https://covers.openlibrary.org/b/isbn/0593652886-L.jpg',
+    readingNow: true
   },
   {
     id: 26,
@@ -552,7 +552,9 @@ export const wishlistData: WishlistBook[] = [
     id: 31,
     title: 'Designing Data-Intensive Applications',
     author: 'Martin Kleppmann',
-    image: 'https://m.media-amazon.com/images/I/91YfNb49PLL._AC_UF1000,1000_QL80_.jpg',
-    readingNow: true
+    image: 'https://m.media-amazon.com/images/I/91YfNb49PLL._AC_UF1000,1000_QL80_.jpg'
   },
 ]
+
+// Libro que Nico está leyendo actualmente (badge "Leyendo ahora")
+export const readingNowBook = wishlistData.find((book) => book.readingNow)

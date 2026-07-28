@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/Button'
-import { booksData } from '@/data/booksData'
+import { ReadingNowBadge } from '@/components/ReadingNowBadge'
+import { booksData, readingNowBook } from '@/data/booksData'
 import { useTilt } from '@/lib/useTilt'
 import type { SVGProps } from 'react'
 
@@ -19,8 +20,8 @@ function ArrowDownIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 export default function MiLibreria() {
-  // Show only the first 5 books
-  const displayBooks = booksData.slice(0, 5)
+  // The currently reading book takes the first slot; fill the rest with read books
+  const displayBooks = booksData.slice(0, readingNowBook ? 4 : 5)
   // Shared handlers: each cover tilts via event.currentTarget
   const { onMouseMove, onMouseLeave } = useTilt<HTMLAnchorElement>()
 
@@ -36,6 +37,32 @@ export default function MiLibreria() {
         </Button>
       </div>
       <div className="flex overflow-x-auto md:grid md:grid-cols-5 gap-4 pb-4 md:pb-0">
+        {readingNowBook && (
+          <Link
+            href="/books/wishlist"
+            className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:scale-105 transition-transform duration-200 flex-shrink-0 w-32 md:w-auto"
+            onMouseMove={onMouseMove}
+            onMouseLeave={onMouseLeave}
+          >
+            <Image
+              src={readingNowBook.image}
+              alt={`Leyendo ahora: ${readingNowBook.title}, de ${readingNowBook.author}`}
+              className="absolute inset-0 h-full w-full object-cover"
+              sizes="(min-width: 768px) 20vw, (min-width: 640px) 33vw, 50vw"
+              fill
+            />
+            <ReadingNowBadge className="absolute top-2 right-2 z-10" />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200" />
+            <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+              <h3 className="text-sm font-semibold text-white truncate">
+                {readingNowBook.title}
+              </h3>
+              <p className="text-xs text-zinc-300 truncate">
+                {readingNowBook.author}
+              </p>
+            </div>
+          </Link>
+        )}
         {displayBooks.map((book) => (
           <Link
             key={book.id}
