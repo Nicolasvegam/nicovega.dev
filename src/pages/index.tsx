@@ -29,6 +29,7 @@ import logoDrexel from '@/images/logos/drexel-uni-logo.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
+import { fireConfetti } from '@/lib/confetti'
 import SEO from '@/components/SEO'
 
 function MailIcon(props: SVGProps<SVGSVGElement>) {
@@ -450,13 +451,21 @@ export default function Home({ articles }: HomeProps) {
       />
       <Container className="mt-9">
         <header className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Nicolás Vega
+          <h1 className="animate-fade-up text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+            Nicolás Vega{' '}
+            <span
+              className="animate-wave text-3xl sm:text-4xl"
+              role="img"
+              aria-label="Mano saludando"
+              onClick={(event) => fireConfetti(event.clientX, event.clientY)}
+            >
+              👋
+            </span>
           </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400" role="doc-subtitle">
+          <p className="animate-fade-up animation-delay-150 mt-6 text-base text-zinc-600 dark:text-zinc-400" role="doc-subtitle">
             Hola! Soy Nico, ingeniero y cofundador de Carvuk.com. Siempre estoy haciendo algo o aprendiendo algo distinto. ¡Gracias por la visita!
           </p>
-          <nav className="mt-6 flex gap-6" aria-label="Social media links">
+          <nav className="animate-fade-up animation-delay-300 mt-6 flex gap-6" aria-label="Social media links">
             <SocialLink
               href="https://github.com/nicolasvegam"
               aria-label="Sígueme on GitHub"
