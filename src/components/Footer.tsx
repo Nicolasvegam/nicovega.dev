@@ -31,9 +31,14 @@ export function Footer() {
                 <NavLink href="/projects">Proyectos</NavLink>
                 <NavLink href="/speaking">Contenido</NavLink>
               </div>
-              <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                &copy; {new Date().getFullYear()} Nicolás Vega.
-              </p>
+              <div className="flex flex-col items-center gap-1 sm:items-end">
+                <p className="text-sm text-zinc-400 dark:text-zinc-500">
+                  &copy; {new Date().getFullYear()} Nicolás Vega.
+                </p>
+                <p className="text-xs text-zinc-400 dark:text-zinc-500">
+                  Hecho con ❤️ desde Santiago, Chile 🇨🇱
+                </p>
+              </div>
             </div>
           </Container.Inner>
         </div>
