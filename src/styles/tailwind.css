@@ -37,6 +37,15 @@
     animation-delay: 300ms;
   }
 
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
   @keyframes wave {
     0% {
       transform: rotate(0deg);

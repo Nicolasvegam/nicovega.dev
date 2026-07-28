@@ -17,12 +17,12 @@ export default function Photos({ images = [image1, image2, image3, image4, image
 
   return (
     <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
+      <div className="scrollbar-hidden -my-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-[calc(50vw-5.5rem)] py-4 sm:snap-none sm:justify-center sm:gap-8 sm:overflow-hidden sm:px-0">
         {images.map((image, imageIndex) => (
           <div
             key={image.src}
             className={clsx(
-              'animate-fade-up relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 transition-all duration-300 ease-out hover:rotate-0 hover:scale-105 hover:shadow-xl hover:shadow-zinc-800/20 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+              'animate-fade-up relative aspect-[9/10] w-44 flex-none snap-center overflow-hidden rounded-xl bg-zinc-100 transition-all duration-300 ease-out hover:rotate-0 hover:scale-105 hover:shadow-xl hover:shadow-zinc-800/20 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
               rotations[imageIndex % rotations.length]
             )}
             style={{ animationDelay: `${150 + imageIndex * 100}ms` }}
