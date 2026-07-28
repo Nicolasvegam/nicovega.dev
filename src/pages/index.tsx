@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
+import { useState } from 'react'
 import type { GetStaticProps } from 'next'
 import type { SVGProps, ComponentType } from 'react'
 import type { StaticImageData } from 'next/image'
@@ -137,6 +138,20 @@ function SocialLink({ icon: Icon, ...props }: SocialLinkProps) {
 }
 
 function Newsletter() {
+  const [copied, setCopied] = useState(false)
+
+  async function copyFeedUrl() {
+    const feedUrl = `${window.location.origin}/rss/feed.xml`
+    try {
+      await navigator.clipboard.writeText(feedUrl)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2500)
+    } catch {
+      // Sin permiso de portapapeles: abrir el feed es mejor que no hacer nada
+      window.open(feedUrl, '_blank')
+    }
+  }
+
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -145,15 +160,25 @@ function Newsletter() {
       </h2>
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
         Cuando publico un artículo nuevo aparece de inmediato en el feed RSS
-        del sitio. Suscríbete con tu lector favorito, sin correos ni spam.
+        del sitio. Copia el link y pégalo en tu lector favorito, sin correos
+        ni spam.
       </p>
       <div className="mt-6">
-        <Button href="/rss/feed.xml" className="w-full">
-          Suscribirse por RSS
+        <Button type="button" onClick={copyFeedUrl} className="w-full">
+          {copied ? '¡Link copiado! ✓' : 'Copiar link del feed RSS'}
         </Button>
       </div>
       <p className="mt-4 text-xs text-zinc-500 dark:text-zinc-400">
-        ¿Prefieres el correo? Escríbeme a{' '}
+        ¿Nuevo en esto?{' '}
+        <a
+          href="https://es.wikipedia.org/wiki/RSS"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-teal-500 transition hover:text-teal-600 dark:hover:text-teal-400"
+        >
+          Qué es RSS
+        </a>
+        . ¿Prefieres el correo? Escríbeme a{' '}
         <a
           href="mailto:hola@nicovega.dev"
           className="font-medium text-teal-500 transition hover:text-teal-600 dark:hover:text-teal-400"
