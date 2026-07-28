@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 import type { GetStaticProps } from 'next'
+import { useEffect, useState } from 'react'
 import type { SVGProps, ComponentType } from 'react'
 import type { StaticImageData } from 'next/image'
 
@@ -440,7 +441,22 @@ interface HomeProps {
   articles: ArticlePreview[]
 }
 
+function getGreetingByHour(hour: number) {
+  if (hour >= 5 && hour <= 11) return '¡Buenos días! ☀️'
+  if (hour >= 12 && hour <= 19) return '¡Buenas tardes!'
+  return '¡Buenas noches! 🌙'
+}
+
 export default function Home({ articles }: HomeProps) {
+  // La página se genera estáticamente: renderizamos "¡Hola!" en el servidor
+  // y actualizamos el saludo según la hora local después del montaje,
+  // evitando un mismatch de hidratación.
+  const [greeting, setGreeting] = useState('¡Hola!')
+
+  useEffect(() => {
+    setGreeting(getGreetingByHour(new Date().getHours()))
+  }, [])
+
   return (
     <>
       <SEO
@@ -463,7 +479,7 @@ export default function Home({ articles }: HomeProps) {
             </span>
           </h1>
           <p className="animate-fade-up animation-delay-150 mt-6 text-base text-zinc-600 dark:text-zinc-400" role="doc-subtitle">
-            Hola! Soy Nico, ingeniero y cofundador de Carvuk.com. Siempre estoy haciendo algo o aprendiendo algo distinto. ¡Gracias por la visita!
+            {greeting} Soy Nico, ingeniero y cofundador de Carvuk.com. Siempre estoy haciendo algo o aprendiendo algo distinto. ¡Gracias por la visita!
           </p>
           <nav className="animate-fade-up animation-delay-300 mt-6 flex gap-6" aria-label="Social media links">
             <SocialLink
