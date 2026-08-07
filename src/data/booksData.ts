@@ -375,6 +375,23 @@ export const booksData: Book[] = [
       goodFor: 'Emprendedores que quieran ver cómo la pasión y los valores pueden guiar una empresa.',
       notGoodFor: 'Quienes busquen solo datos ecológicos actualizados o una biografía más extensa.'
     }
+  },
+  {
+    id: 21,
+    title: 'El Alquimista',
+    author: 'Paulo Coelho',
+    image: 'https://covers.openlibrary.org/b/isbn/0062511408-L.jpg',
+    rating: 5,
+    slug: 'el-alquimista',
+    review: {
+      summary: 'Lo leí súper rápido y me encantó. Me gustó mucho la parte geográfica: la historia transcurre entre España y Marruecos, lugares en los que no he estado precisamente, pero sí cerca, y conozco ambas culturas, así que fue interesante ponerse en esos tiempos pasados. El protagonista emprende una gran aventura que termina en un final bastante sorpresivo y que hace mucho sentido. Es una lectura fácil, se entiende bien cuáles son los objetivos, y es muy inspiradora para la etapa que estoy viviendo ahora. De lo negativo no tengo nada que decir: cinco estrellas de cinco. Full recomendado.',
+      liked: 'Muchísimo',
+      about: 'La fábula de Santiago, un pastor andaluz que emprende un viaje desde España hacia Marruecos y el desierto en busca de un tesoro y de su Leyenda Personal.',
+      whyBought: 'Buscaba una lectura corta e inspiradora para la etapa que estoy viviendo.',
+      favoritePart: 'El viaje entre España y Marruecos, culturas que conozco de cerca, y un final sorpresivo que hace todo el sentido.',
+      goodFor: 'Cualquiera que busque una lectura fácil e inspiradora sobre perseguir sus sueños.',
+      notGoodFor: 'Difícil decir algo malo; quizás quienes prefieran historias largas y densas, porque se termina muy rápido.'
+    }
   }
 ]
 
