@@ -380,7 +380,7 @@ export const booksData: Book[] = [
     id: 21,
     title: 'El Alquimista',
     author: 'Paulo Coelho',
-    image: 'https://covers.openlibrary.org/b/isbn/0062511408-L.jpg',
+    image: 'https://covers.openlibrary.org/b/isbn/0062315005-L.jpg',
     rating: 5,
     slug: 'el-alquimista',
     review: {
@@ -473,12 +473,6 @@ export const wishlistData: WishlistBook[] = [
     title: 'Thinking, Fast and Slow',
     author: 'Daniel Kahneman',
     image: 'https://covers.openlibrary.org/b/isbn/0374533555-L.jpg'
-  },
-  {
-    id: 11,
-    title: 'The Alchemist',
-    author: 'Paulo Coelho',
-    image: 'https://covers.openlibrary.org/b/isbn/0062315005-L.jpg'
   },
   {
     id: 12,
