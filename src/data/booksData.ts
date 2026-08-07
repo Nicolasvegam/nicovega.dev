@@ -392,6 +392,23 @@ export const booksData: Book[] = [
       goodFor: 'Cualquiera que busque una lectura fácil e inspiradora sobre perseguir sus sueños.',
       notGoodFor: 'Difícil decir algo malo; quizás quienes prefieran historias largas y densas, porque se termina muy rápido.'
     }
+  },
+  {
+    id: 22,
+    title: 'The Creative Act: A Way of Being',
+    author: 'Rick Rubin',
+    image: 'https://covers.openlibrary.org/b/isbn/0593652886-L.jpg',
+    rating: 3,
+    slug: 'the-creative-act',
+    review: {
+      summary: 'Lo encontré bueno, pero no es necesariamente el libro de creatividad con el que más me identifico. Tiene pasajes medio abstractos —no sé si confusos— así que no es la lectura más fácil de digerir que he tenido sobre creatividad. Algunas cosas sí me hicieron sentido con los tiempos actuales y con los procesos y momentos creativos que he tenido que afrontar: en momentos críticos, donde uno no sabe qué hacer, creo que puede sumar valor. Lo apliqué al mundo de la programación, de las startups y de la empresa que estamos creando, y aplicaba, pero no en el cien por ciento de los casos. Overall no me aportó tanto valor ni lo encontré tan revelador como lo mucho que se recomendaba.',
+      liked: 'Más o menos',
+      about: 'Las reflexiones de Rick Rubin sobre la creatividad como una forma de ser: cómo abrirse a las ideas y sostener el proceso creativo en el tiempo.',
+      whyBought: 'Por lo mucho que se recomendaba como libro de creatividad.',
+      favoritePart: 'Las recomendaciones para momentos críticos, cuando uno está estancado o le falta visión o certeza de cómo ir avanzando.',
+      goodFor: 'Personas que hacen arte como trabajo o que dedican el cien por ciento de su día a lo creativo.',
+      notGoodFor: 'Quienes busquen una guía práctica y fácil de digerir; aplicado a la programación o a las startups solo funciona en parte.'
+    }
   }
 ]
 
@@ -528,13 +545,6 @@ export const wishlistData: WishlistBook[] = [
     title: 'The Art of Spending Money',
     author: 'Morgan Housel',
     image: 'https://m.media-amazon.com/images/I/71Pusl9N1AL._AC_UF1000,1000_QL80_.jpg'
-  },
-  {
-    id: 25,
-    title: 'The Creative Act: A Way of Being',
-    author: 'Rick Rubin',
-    image: 'https://covers.openlibrary.org/b/isbn/0593652886-L.jpg',
-    readingNow: true
   },
   {
     id: 26,
