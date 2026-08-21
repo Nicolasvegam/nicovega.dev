@@ -1,9 +1,9 @@
-import Head from 'next/head'
 import type { ReactNode } from 'react'
 
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import SEO from '@/components/SEO'
 
 interface ToolsSectionProps {
   title: string
@@ -40,13 +40,11 @@ function Tool({ title, href, children }: ToolProps) {
 export default function Uses() {
   return (
     <>
-      <Head>
-        <title>Uses - Nicolás Vega</title>
-        <meta
-          name="description"
-          content="Software I use, gadgets I love, and other things I recommend."
-        />
-      </Head>
+      <SEO
+        title="Uses — Nicolás Vega"
+        description="Software, herramientas, equipos y servicios que Nicolás Vega utiliza para desarrollar productos y mantenerse productivo."
+        url="https://nicovega.dev/uses"
+      />
       <SimpleLayout
         title="Software I use, gadgets I love, and other things I recommend."
         intro="I get asked a lot about the things I use to build software, stay productive, or buy to fool myself into thinking I&apos;m being productive when I&apos;m really just procrastinating. Here&apos;s a big list of all of my favorite stuff."

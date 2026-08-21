@@ -25,4 +25,3 @@ Allow: /
 
 # Sitemaps
 Sitemap: https://nicovega.dev/sitemap.xml
-Sitemap: https://nicovega.dev/rss/feed.xml 

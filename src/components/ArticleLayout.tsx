@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { useRouter } from 'next/router'
 import type { ReactNode, SVGProps } from 'react'
 
@@ -6,6 +5,7 @@ import { Container } from '@/components/Container'
 import { formatDate } from '@/lib/formatDate'
 import { Prose } from '@/components/Prose'
 import type { ArticleMeta } from '@/types/articles'
+import SEO from '@/components/SEO'
 
 function ArrowLeftIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -39,12 +39,20 @@ export function ArticleLayout({
     return <>{children}</>
   }
 
+  const canonicalPath = meta.slug ? `/articles/${meta.slug}` : '/articles'
+
   return (
     <>
-      <Head>
-        <title>{`${meta.title} - Nicolás Vega`}</title>
-        <meta name="description" content={meta.description} />
-      </Head>
+      <SEO
+        title={`${meta.title} — Nicolás Vega`}
+        description={meta.description}
+        url={`https://nicovega.dev${canonicalPath}`}
+        type="article"
+        publishedTime={meta.date}
+        modifiedTime={meta.date}
+        tags={meta.tags}
+        author={meta.author || 'Nicolás Vega'}
+      />
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
           <div className="mx-auto max-w-2xl">
