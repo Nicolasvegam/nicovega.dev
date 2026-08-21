@@ -13,13 +13,14 @@ export async function generateRssFeed(): Promise<void> {
   const articles = await getAllArticles()
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nicovega.dev'
   const author: Author = {
-    name: 'Spencer Sharp',
-    email: 'spencer@planetaria.tech',
+    name: 'Nicolás Vega',
+    email: 'hola@nicovega.dev',
   }
 
   const feed = new Feed({
-    title: author.name,
-    description: 'Your blog description',
+    title: 'Nicolás Vega — Artículos',
+    description:
+      'Artículos de Nicolás Vega sobre ingeniería de software, producto, startups, automatización y tecnología.',
     author,
     id: siteUrl,
     link: siteUrl,

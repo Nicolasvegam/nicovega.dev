@@ -12,7 +12,7 @@ module.exports = withMDX({
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactStrictMode: true,
   images: {
-    domains: ['nicovega.dev', 'images.unsplash.com', 'm.media-amazon.com'], 
+    domains: ['nicovega.dev', 'images.unsplash.com', 'm.media-amazon.com'],
   },
   async headers() {
     return [
@@ -25,7 +25,61 @@ module.exports = withMDX({
           },
         ],
       },
-    ];
+      {
+        source: '/llms.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value:
+              'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+        ],
+      },
+      {
+        source: '/llms-full.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value:
+              'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+        ],
+      },
+      {
+        source: '/agent-instructions.md',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/markdown; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value:
+              'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+        ],
+      },
+    ]
   },
 
   async redirects() {
@@ -50,16 +104,19 @@ module.exports = withMDX({
         destination: 'https://software.nicovega.dev/:path*',
         permanent: true,
       },
-    ];
+    ]
   },
-  
+
   async rewrites() {
     return [
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap.xml',
+      },
       {
         source: '/trotaglobo/:path*',
         destination: 'https://trotaglobo.vercel.app/:path*',
       },
-    ];
+    ]
   },
-  
 })

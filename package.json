@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test --test-concurrency=1 tests/agent-readiness.test.mjs",
+    "verify": "npm run typecheck && npm run lint && npm test"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {

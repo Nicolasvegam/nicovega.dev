@@ -1,9 +1,9 @@
-import Head from 'next/head'
 import type { ReactNode } from 'react'
 
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import SEO from '@/components/SEO'
 
 interface SpeakingSectionProps {
   title: string
@@ -42,13 +42,11 @@ function Appearance({ title, description, event, cta, href }: AppearanceProps) {
 export default function Speaking() {
   return (
     <>
-      <Head>
-        <title>Speaking - Nicolás Vega</title>
-        <meta
-          name="description"
-          content="Algo de contenido anda por ahí."
-        />
-      </Head>
+      <SEO
+        title="Contenido y charlas — Nicolás Vega"
+        description="Charlas, podcasts y tutoriales de Nicolás Vega sobre operaciones, tecnología, producto, emprendimiento y automatización."
+        url="https://nicovega.dev/speaking"
+      />
       <SimpleLayout
         title="A veces hago Contenido"
         intro="Creo que no soy muy bueno, pero se puede mejorar."

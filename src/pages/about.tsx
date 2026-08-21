@@ -4,12 +4,10 @@ import clsx from 'clsx'
 import type { SVGProps, ComponentType, ReactNode } from 'react'
 
 import { Container } from '@/components/Container'
-import {
-  GitHubIcon,
-  LinkedInIcon,
-} from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import portraitImage from '@/images/portrait.jpg'
 import SEO from '@/components/SEO'
+import { pressLinks } from '@/lib/site'
 
 interface SocialLinkProps {
   className?: string
@@ -18,7 +16,12 @@ interface SocialLinkProps {
   icon: ComponentType<SVGProps<SVGSVGElement>>
 }
 
-function SocialLink({ className, href, children, icon: Icon }: SocialLinkProps) {
+function SocialLink({
+  className,
+  href,
+  children,
+  icon: Icon,
+}: SocialLinkProps) {
   return (
     <li className={clsx(className, 'flex')}>
       <Link
@@ -47,8 +50,8 @@ export default function About() {
   return (
     <>
       <SEO
-        title="Sobre mí - Nicolás Vega"
-        description="Acá puedes conocer un poco más sobre mí."
+        title="Sobre Nicolás Vega"
+        description="Trayectoria, experiencia y referencias públicas de Nicolás Vega, ingeniero de software y cofundador de Carvuk en Santiago de Chile."
         url="https://nicovega.dev/about"
       />
       <Container className="mt-16 sm:mt-32">
@@ -65,24 +68,82 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              Hola!
+              Hola, soy Nico.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                Siempre estoy haciendo algo o aprendiendo algo distinto.
+                Soy Nicolás Vega, ingeniero de software y cofundador de{' '}
+                <Link
+                  href="https://www.carvuk.com"
+                  className="text-teal-500 hover:text-teal-600"
+                >
+                  Carvuk
+                </Link>
+                . Trabajo construyendo productos digitales y sistemas que
+                vuelven más simples tareas que antes dependían de coordinación
+                manual. En Carvuk aplicamos esa idea al cuidado del auto:
+                conectamos tecnología, operación y servicio para resolver
+                mantenciones y reparaciones con menos fricción.
               </p>
               <p>
-                Cofundé <Link href="https://www.carvuk.com" className="text-teal-500 hover:text-teal-600">Carvuk.com</Link>, una plataforma que se encarga de TODO lo relacionado al auto con un par de clicks.
-                ¿Tienes auto? Sin duda, podemos ayudarte con las reparaciones, mantenimiento, seguros, etc.
+                Antes trabajé en producto, investigación de datos y tecnología
+                en Xepelin, el Instituto Milenio Fundamentos de los Datos,
+                Vodafone Italia, Mercado Libre y Huawei China. Estudié
+                Management &amp; Engineering en el Politecnico di Torino y
+                Management &amp; Computer Science en la Pontificia Universidad
+                Católica de Chile.
               </p>
+              <p>
+                nicovega.dev es mi archivo profesional oficial. Reúne artículos
+                sobre liderazgo técnico, automatización y startups, además de
+                proyectos, charlas y libros que han influido en mi forma de
+                trabajar. La información de este sitio se puede contrastar con
+                los perfiles y referencias editoriales que aparecen abajo.
+              </p>
+              <section aria-labelledby="public-references">
+                <h2
+                  id="public-references"
+                  className="text-xl font-semibold text-zinc-800 dark:text-zinc-100"
+                >
+                  Referencias públicas
+                </h2>
+                <p>
+                  Estas fuentes externas vinculan a Nicolás Vega con Carvuk, su
+                  formación y su trabajo en tecnología, y ayudan a desambiguar
+                  este perfil de otras personas con el mismo nombre.
+                </p>
+                <ul className="space-y-3">
+                  {pressLinks.map((reference) => (
+                    <li key={reference.href}>
+                      <Link
+                        href={reference.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-teal-500 hover:text-teal-600 dark:text-teal-400"
+                      >
+                        {reference.title}
+                      </Link>{' '}
+                      <span>— {reference.publisher}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             </div>
           </div>
           <div className="lg:pl-20">
             <ul role="list">
-              <SocialLink href="https://github.com/nicolasvegam" icon={GitHubIcon} className="mt-4">
+              <SocialLink
+                href="https://github.com/nicolasvegam"
+                icon={GitHubIcon}
+                className="mt-4"
+              >
                 Sígueme en GitHub
               </SocialLink>
-              <SocialLink href="https://www.linkedin.com/in/nicolasvegam/" icon={LinkedInIcon} className="mt-4">
+              <SocialLink
+                href="https://www.linkedin.com/in/nicolasvegam/"
+                icon={LinkedInIcon}
+                className="mt-4"
+              >
                 Sígueme LinkedIn
               </SocialLink>
               <SocialLink
