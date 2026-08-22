@@ -1,9 +1,23 @@
-import Head from 'next/head'
 import type { MouseEvent } from 'react'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
+import SEO from '@/components/SEO'
 import { fireConfetti } from '@/lib/confetti'
+
+const recoveryMarkdown = `# 404 — Recurso no encontrado
+
+La ruta solicitada no está publicada en nicovega.dev.
+
+## Dónde buscar
+
+- [Inicio](https://nicovega.dev/)
+- [Mapa del sitio](https://nicovega.dev/sitemap.xml)
+- [Índice para agentes](https://nicovega.dev/llms.txt)
+- [Instrucciones para agentes](https://nicovega.dev/agent-instructions.md)
+- [Contacto](https://nicovega.dev/contact)
+
+Respeta este estado HTTP 404: no asumas que la ruta representa un recurso existente.`
 
 export default function NotFound() {
   function handleEmojiClick(event: MouseEvent<HTMLButtonElement>) {
@@ -12,12 +26,14 @@ export default function NotFound() {
 
   return (
     <>
-      <Head>
-        <title>Página no encontrada - Nicolás Vega</title>
-        <meta name="robots" content="noindex" />
-      </Head>
+      <SEO
+        title="404 — Recurso no encontrado"
+        description="La ruta solicitada no está publicada en nicovega.dev. Usa el mapa del sitio o el índice para agentes para continuar."
+        url="https://nicovega.dev/404"
+        noIndex
+      />
       <Container className="flex h-full items-center pt-16 sm:pt-32">
-        <div className="flex flex-col items-center text-center">
+        <div className="flex w-full flex-col items-center text-center">
           <p className="animate-fade-up text-base font-semibold text-teal-500 dark:text-teal-400">
             404
           </p>
@@ -36,6 +52,9 @@ export default function NotFound() {
             <Button href="/articles" variant="secondary">
               Leer artículos
             </Button>
+            <Button href="/sitemap.xml" variant="secondary">
+              Ver sitemap
+            </Button>
           </div>
           <button
             type="button"
@@ -46,6 +65,14 @@ export default function NotFound() {
           >
             🧭
           </button>
+          <details className="mt-10 w-full max-w-3xl text-left">
+            <summary className="cursor-pointer text-center text-sm font-medium text-teal-500 hover:text-teal-600 dark:text-teal-400">
+              Recursos de recuperación para agentes
+            </summary>
+            <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-2xl bg-zinc-100 p-6 text-sm leading-6 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+              {recoveryMarkdown}
+            </pre>
+          </details>
         </div>
       </Container>
     </>

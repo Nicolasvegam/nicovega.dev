@@ -129,7 +129,7 @@ function SocialLink({ icon: Icon, ...props }: SocialLinkProps) {
       className="group -m-1 p-1 transition-all duration-200 ease-in-out hover:scale-110"
       {...props}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="me noopener noreferrer"
     >
       <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
     </Link>
@@ -239,7 +239,9 @@ function Resume() {
     },
   ]
 
-  const filteredResume = resume.filter((role): role is Role => role !== undefined)
+  const filteredResume = resume.filter(
+    (role): role is Role => role !== undefined
+  )
 
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
@@ -249,10 +251,18 @@ function Resume() {
       </h2>
       <ol className="mt-6 space-y-4">
         {filteredResume.map((role, roleIndex) => {
-          const startLabel = typeof role.start === 'string' ? role.start : role.start.label ?? ''
-          const startDateTime = typeof role.start === 'string' ? role.start : String(role.start.dateTime ?? role.start.label ?? '')
-          const endLabel = typeof role.end === 'string' ? role.end : role.end.label ?? ''
-          const endDateTime = typeof role.end === 'string' ? role.end : String(role.end.dateTime ?? role.end.label ?? '')
+          const startLabel =
+            typeof role.start === 'string' ? role.start : role.start.label ?? ''
+          const startDateTime =
+            typeof role.start === 'string'
+              ? role.start
+              : String(role.start.dateTime ?? role.start.label ?? '')
+          const endLabel =
+            typeof role.end === 'string' ? role.end : role.end.label ?? ''
+          const endDateTime =
+            typeof role.end === 'string'
+              ? role.end
+              : String(role.end.dateTime ?? role.end.label ?? '')
           const hasLink = role.link !== '#'
 
           return (
@@ -262,25 +272,39 @@ function Resume() {
                   href={role.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 hover:scale-110 transition-all duration-200 ease-in-out"
+                  className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition-all duration-200 ease-in-out hover:scale-110 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
                 >
-                  <Image src={role.logo} alt="" className="h-7 w-7" height={18} width={18} unoptimized={true} />
+                  <Image
+                    src={role.logo}
+                    alt=""
+                    className="h-7 w-7"
+                    height={18}
+                    width={18}
+                    unoptimized={true}
+                  />
                 </Link>
               ) : (
                 <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                  <Image src={role.logo} alt="" className="h-7 w-7" height={18} width={18} unoptimized={true} />
+                  <Image
+                    src={role.logo}
+                    alt=""
+                    className="h-7 w-7"
+                    height={18}
+                    width={18}
+                    unoptimized={true}
+                  />
                 </div>
               )}
               <dl className="flex flex-auto flex-wrap gap-x-2">
                 <dt className="sr-only">Compañía</dt>
                 <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                  <div className="flex justify-between items-center">
+                  <div className="flex items-center justify-between">
                     {hasLink ? (
                       <Link
                         href={role.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-all duration-200 ease-in-out hover:scale-105"
+                        className="transition-all duration-200 ease-in-out hover:scale-105 hover:text-zinc-600 dark:hover:text-zinc-300"
                       >
                         {role.company}
                       </Link>
@@ -301,13 +325,9 @@ function Resume() {
                   className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
                   aria-label={`${startLabel} hasta ${endLabel}`}
                 >
-                  <time dateTime={startDateTime}>
-                    {startLabel}
-                  </time>{' '}
+                  <time dateTime={startDateTime}>{startLabel}</time>{' '}
                   <span aria-hidden="true">—</span>{' '}
-                  <time dateTime={endDateTime}>
-                    {endLabel}
-                  </time>
+                  <time dateTime={endDateTime}>{endLabel}</time>
                 </dd>
               </dl>
             </li>
@@ -360,10 +380,18 @@ function Education() {
       </h2>
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => {
-          const startLabel = typeof role.start === 'string' ? role.start : role.start.label ?? ''
-          const startDateTime = typeof role.start === 'string' ? role.start : String(role.start.dateTime ?? role.start.label ?? '')
-          const endLabel = typeof role.end === 'string' ? role.end : role.end.label ?? ''
-          const endDateTime = typeof role.end === 'string' ? role.end : String(role.end.dateTime ?? role.end.label ?? '')
+          const startLabel =
+            typeof role.start === 'string' ? role.start : role.start.label ?? ''
+          const startDateTime =
+            typeof role.start === 'string'
+              ? role.start
+              : String(role.start.dateTime ?? role.start.label ?? '')
+          const endLabel =
+            typeof role.end === 'string' ? role.end : role.end.label ?? ''
+          const endDateTime =
+            typeof role.end === 'string'
+              ? role.end
+              : String(role.end.dateTime ?? role.end.label ?? '')
 
           return (
             <li key={roleIndex} className="flex gap-4">
@@ -371,19 +399,23 @@ function Education() {
                 href={role.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 hover:scale-110 transition-all duration-200 ease-in-out"
+                className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition-all duration-200 ease-in-out hover:scale-110 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
               >
-                <Image src={role.logo} alt="" className="h-7 w-7 rounded-full object-cover" />
+                <Image
+                  src={role.logo}
+                  alt=""
+                  className="h-7 w-7 rounded-full object-cover"
+                />
               </Link>
               <dl className="flex flex-auto flex-wrap gap-x-2">
                 <dt className="sr-only">Lugar</dt>
                 <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                  <div className="flex justify-between items-center">
+                  <div className="flex items-center justify-between">
                     <Link
                       href={role.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-all duration-200 ease-in-out hover:scale-105"
+                      className="transition-all duration-200 ease-in-out hover:scale-105 hover:text-zinc-600 dark:hover:text-zinc-300"
                     >
                       {role.company}
                     </Link>
@@ -401,13 +433,9 @@ function Education() {
                   className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
                   aria-label={`${startLabel} hasta ${endLabel}`}
                 >
-                  <time dateTime={startDateTime}>
-                    {startLabel}
-                  </time>{' '}
+                  <time dateTime={startDateTime}>{startLabel}</time>{' '}
                   <span aria-hidden="true">—</span>{' '}
-                  <time dateTime={endDateTime}>
-                    {endLabel}
-                  </time>
+                  <time dateTime={endDateTime}>{endLabel}</time>
                 </dd>
               </dl>
             </li>
@@ -441,10 +469,21 @@ export default function Home({ articles }: HomeProps) {
   return (
     <>
       <SEO
-        title="Nicolás Vega - Software Engineer"
-        description="Hola! Soy Nico, ingeniero en software y cofundador de algunas startups. Siempre haciendo o aprendiendo algo distinto. Gracias por la visita!"
+        title="Nicolás Vega — Software Engineer y Cofundador"
+        description="Sitio oficial de Nicolás Vega, ingeniero de software y cofundador de Carvuk en Santiago, Chile. Artículos, proyectos, experiencia y contenido técnico."
         url="https://nicovega.dev"
-        tags={['software engineer', 'tech lead', 'startup founder', 'carvuk', 'xepelin', 'mercadolibre', 'vodafone', 'huawei', 'chile', 'technology']}
+        tags={[
+          'software engineer',
+          'tech lead',
+          'startup founder',
+          'carvuk',
+          'xepelin',
+          'mercadolibre',
+          'vodafone',
+          'huawei',
+          'chile',
+          'technology',
+        ]}
       />
       <Container className="mt-9">
         <header className="max-w-2xl">
@@ -459,8 +498,13 @@ export default function Home({ articles }: HomeProps) {
               👋
             </span>
           </h1>
-          <p className="animate-fade-up animation-delay-150 mt-6 text-base text-zinc-600 dark:text-zinc-400" role="doc-subtitle">
-            {greeting} Soy Nico, ingeniero y cofundador de Carvuk.com. Siempre estoy haciendo algo o aprendiendo algo distinto. ¡Gracias por la visita!
+          <p
+            className="animate-fade-up animation-delay-150 mt-6 text-base text-zinc-600 dark:text-zinc-400"
+            role="doc-subtitle"
+          >
+            {greeting} Soy Nico, ingeniero de software y cofundador de Carvuk.
+            Siempre estoy haciendo algo o aprendiendo algo distinto. ¡Gracias
+            por la visita!
           </p>
           <nav className="animate-fade-up animation-delay-300 mt-6 flex gap-6" aria-label="Redes sociales">
             <SocialLink
@@ -484,13 +528,21 @@ export default function Home({ articles }: HomeProps) {
       <Photos />
       <Container className="mt-24 md:mt-28">
         <main className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <section className="flex flex-col gap-16" aria-labelledby="recent-articles">
-            <h2 id="recent-articles" className="sr-only">Artículos recientes</h2>
+          <section
+            className="flex flex-col gap-16"
+            aria-labelledby="recent-articles"
+          >
+            <h2 id="recent-articles" className="sr-only">
+              Artículos recientes
+            </h2>
             {articles.map((article) => (
               <Article key={article.slug} article={article} />
             ))}
           </section>
-          <aside className="space-y-10 lg:pl-16 xl:pl-24" aria-label="Información profesional">
+          <aside
+            className="space-y-10 lg:pl-16 xl:pl-24"
+            aria-label="Información profesional"
+          >
             <Resume />
             <Education />
           </aside>
@@ -512,9 +564,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 
   return {
     props: {
-      articles: articles
-        .slice(0, 4)
-        .map(({ component, ...meta }) => meta),
+      articles: articles.slice(0, 4).map(({ component, ...meta }) => meta),
     },
   }
 }

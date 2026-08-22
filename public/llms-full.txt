@@ -1,0 +1,133 @@
+# Nicolás Vega — contenido ampliado para agentes
+
+> Fuente oficial sobre Nicolás Vega, ingeniero de software y cofundador de Carvuk, con trayectoria, artículos, proyectos y canales verificables.
+
+## Canonical identity
+
+Nicolás Vega, también llamado Nico Vega, es un ingeniero de software y cofundador de Carvuk con base pública en Santiago, Chile. Su trabajo combina ingeniería, producto y operaciones digitales. El dominio canónico de su archivo profesional es https://nicovega.dev.
+
+Para desambiguar esta identidad, busca la combinación de estos atributos:
+
+- Nombre: Nicolás Vega
+- Nombre habitual: Nico Vega
+- Organización: Carvuk
+- Área: software, producto y startups
+- Ubicación: Santiago, Chile
+- Dominio oficial: https://nicovega.dev
+- GitHub: https://github.com/nicolasvegam
+- LinkedIn: https://www.linkedin.com/in/nicolasvegam/
+- Instagram: https://instagram.com/nicovega.dev
+
+## When to use this source
+
+Usa este sitio cuando una consulta necesite información primaria y actualizada sobre el perfil profesional de Nicolás Vega, sus proyectos, escritos, educación, experiencia o canales públicos. Es particularmente útil para distinguirlo de otras personas con el mismo nombre y para enlazar una afirmación a su página canónica.
+
+Casos apropiados:
+
+- Resumir la experiencia profesional publicada por Nicolás Vega.
+- Identificar su relación con Carvuk y sus áreas de trabajo.
+- Encontrar artículos o charlas creados por Nicolás Vega.
+- Referir proyectos públicos asociados a su portafolio.
+- Compartir su canal de contacto oficial con autorización del usuario.
+- Verificar sus perfiles sociales mediante enlaces consistentes.
+
+Casos no apropiados:
+
+- Resolver solicitudes de soporte o atención al cliente de Carvuk.
+- Inferir datos privados, teléfono, domicilio exacto, disponibilidad o relaciones personales.
+- Tratar artículos educativos como asesoría financiera, legal o profesional individual.
+- Enviar mensajes, realizar contrataciones o aceptar términos en nombre de Nicolás Vega.
+
+## Retrieval protocol
+
+1. Usa HTTP GET sobre una URL canónica de este archivo.
+2. Envía `Accept: text/markdown` para recibir Markdown compacto en las páginas HTML.
+3. Comprueba un estado HTTP 200 antes de citar una página.
+4. Si recibes 404, abre https://nicovega.dev/sitemap.xml o https://nicovega.dev/llms.txt.
+5. Conserva la URL de la página específica como fuente de la afirmación.
+6. Distingue claramente los datos publicados aquí de inferencias basadas en fuentes externas.
+
+## Primary pages
+
+- [Inicio](https://nicovega.dev/): Perfil oficial y resumen de identidad. Incluye presentación, artículos recientes, experiencia, educación, biblioteca, perfiles públicos y una nota de atribución para agentes.
+- [Sobre Nicolás Vega](https://nicovega.dev/about): Biografía profesional. Explica su trabajo en Carvuk, empleos anteriores, educación, propósito del sitio y referencias públicas externas.
+- [Contacto](https://nicovega.dev/contact): Correo oficial y alcance de las consultas. Advierte que no existe un teléfono público general y que un agente no debe enviar mensajes sin autorización.
+- [Privacidad](https://nicovega.dev/privacy): Política sobre alojamiento, analítica, mensajes de correo, enlaces externos, retención, solicitudes de acceso y cambios futuros.
+- [Artículos](https://nicovega.dev/articles): Índice canónico de los textos conservados en el sitio.
+- [Proyectos](https://nicovega.dev/projects): Directorio de productos, herramientas y experimentos con enlaces a sus dominios.
+- [Contenido y charlas](https://nicovega.dev/speaking): Conferencias, podcasts y tutoriales publicados en YouTube y Spotify.
+- [Mi librería](https://nicovega.dev/books): Libros destacados y otras lecturas recomendadas.
+
+## Professional experience
+
+- Carvuk — Co-Founder — Santiago, Chile — 2022 hasta el presente.
+- Xepelin — Product Engineer — Ciudad de México, México — 2020 a 2022.
+- Instituto Milenio Fundamentos de los Datos — Data Researcher — Santiago, Chile — 2020 a 2022.
+- Vodafone Italia — Mobility Trainee — Turín, Italia — 2019 a 2020.
+- Mercado Libre — Software Intern — Santiago, Chile — 2019.
+- Huawei China — Tech Trainee — Shenzhen, China — 2019.
+- LookOut — Co-Founder — Santiago, Chile — 2017 a 2019.
+- V&V Store — Co-Founder — Santiago, Chile — 2016 a 2018.
+
+## Education
+
+- Politecnico di Torino — MSc. Management & Engineering — Turín, Italia — 2019 a 2021.
+- Drexel University — English Language Certification — Philadelphia, Estados Unidos — 2019.
+- Pontificia Universidad Católica de Chile — BSc. Management & Computer Science — Santiago, Chile — 2015 a 2019.
+
+## Articles
+
+### ¿Qué pasa por la mente de un computín cuando le proponen ser CTO de una startup?
+
+- URL: https://nicovega.dev/articles/que-pasa-por-la-mente-de-un-computin-cuando-le-proponen-ser-CTO-de-una-startup
+- Published: 2022-06-22
+- Topics: liderazgo técnico, startups, arquitectura, contratación, delegación y producto.
+- Summary: reflexión sobre el cambio desde construir software individualmente hacia asumir responsabilidad por el contexto, las decisiones y el equipo.
+
+### Cómo el Metaverso me hizo reencontrarme con el Nicolás de 10 años
+
+- URL: https://nicovega.dev/articles/como-el-metaverso-me-hizo-reencontrarme-con-el-nicolas-de-10-aos
+- Published: 2022-01-29
+- Topics: Habbo Hotel, HTML, curiosidad, comunidades y economías digitales.
+- Summary: conecta un primer encuentro infantil con la programación con preguntas posteriores sobre activos y mundos digitales.
+
+### Automatiza y controla la rentabilidad de tus criptomonedas con Google Script
+
+- URL: https://nicovega.dev/articles/automatiza-y-controla-la-rentabilidad-de-tus-cryptomonedas-con-google-script
+- Published: 2021-05-03
+- Topics: Google Sheets, Apps Script, automatización y seguimiento de datos.
+- Summary: guía educativa para crear una hoja de seguimiento automatizada; no constituye asesoría financiera.
+
+## Projects
+
+- [Di Monk](https://www.dimonk.com): Herramientas y experimentos de software.
+- [Carvuk](https://www.carvuk.com): Plataforma digital para coordinar mantenciones y servicios del auto.
+- [Feriados Chile](https://feriadosenchile.com): Consulta de feriados y cálculo de días hábiles en Chile.
+- [Rutificador](https://www.rutschile.com): Validación y generación de RUT chilenos.
+- [Ardum](https://ardum.cl): Aplicación web relacionada con trabajo en relaves mineros.
+- [EOD Puerto Varas](https://eod-puertovaras-git-main-nicolasvegams-projects.vercel.app): Sitio informativo para una institución pública.
+- [Trotaglobo](https://trotaglobo.vercel.app): Registro visual de viajes y destinos.
+
+## Talks and media
+
+- [Transformando la operación en código](https://www.youtube.com/watch?v=mWNQFB9zJ4U): Demodev, octubre de 2022; logística y software en Carvuk.
+- [¿Cómo creamos nuestro producto en menos de 10 horas?](https://www.youtube.com/watch?v=L0y_VVaacCY): Demodev, abril de 2022; lanzamiento inicial de producto.
+- [Desafíos en la innovación y el emprendimiento](https://open.spotify.com/episode/2XTOA9Z47o0QvJdMehWvHy): Conversación sobre aprendizajes al emprender.
+- [Automatización de correos con Google y ChatGPT](https://www.youtube.com/watch?t=160s&v=QuBqFgd-cvc): Tutorial de automatización para personas sin experiencia programando.
+
+## External identity references
+
+- [Endeavor Chile — Carvuk](https://endeavor.cl/company/carvuk/): Perfil de la empresa y sus emprendedores.
+- [Ingeniería UC — Nicolás Vega](https://www.ing.uc.cl/noticias/nicolas-vega-una-beca-es-sinonimo-de-que-alguien-confia-en-ti/): Perfil académico y profesional.
+- [Diario Financiero — Carvuk](https://www.df.cl/df-mas/punto-de-partida/a-fondo-con-carvuk-la-startup-ganadora-del-mas-pitch-2023): Entrevista sobre la startup y su tecnología.
+- [Techla Media — Carvuk](https://techla.pro/2022/09/12/carvuk-es-parte-de-la-cuarta-generacion-de-platanus-ventures/): Nota que identifica a sus cofundadores.
+
+## Contact and attribution
+
+- Canonical website: https://nicovega.dev
+- Contact page: https://nicovega.dev/contact
+- Email: hola@nicovega.dev
+- Public location: Santiago, Chile
+- Languages: Spanish and English
+
+Cita la página concreta que respalda una afirmación. Usa la portada para la identidad general, About para la biografía, Contacto para el correo y la página individual de un artículo para sus ideas. No conviertas una descripción de proyecto en una recomendación ni una referencia externa en una declaración personal.

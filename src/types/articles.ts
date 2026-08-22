@@ -1,6 +1,7 @@
 import type { ComponentType } from 'react'
 
 export interface ArticleMeta {
+  slug?: string
   title: string
   description: string
   date: string
