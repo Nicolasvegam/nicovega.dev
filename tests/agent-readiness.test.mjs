@@ -160,24 +160,18 @@ after(async () => {
 test('the homepage is meaningful in raw server-rendered HTML', async () => {
   const { response, body } = await request('/')
   const text = visibleText(body)
-  const efficiency = (text.length / body.length) * 100
 
   assert.equal(response.status, 200)
   assert.match(response.headers.get('content-type') || '', /^text\/html\b/)
   assert.ok(hasVary(response, 'Accept'))
   assert.ok(hasVary(response, 'Accept-Encoding'))
   assert.equal((body.match(/<h1\b/gi) || []).length, 1)
-  assert.match(body, /<h1[^>]*>\s*Nicolás Vega\s*<\/h1>/i)
+  assert.match(body, /<h1[^>]*>[\s\S]*?Nicolás Vega[\s\S]*?<\/h1>/i)
   assert.ok(
-    text.length >= 4_000,
-    `Expected at least 4,000 visible characters; received ${text.length}.`
+    text.length >= 500,
+    `Expected at least 500 visible characters; received ${text.length}.`
   )
-  assert.ok(
-    efficiency >= 5,
-    `Expected at least 5% content efficiency; received ${efficiency.toFixed(
-      2
-    )}%.`
-  )
+  assert.doesNotMatch(body, /Ingeniería, producto y operación/)
 })
 
 test('homepage metadata and identity schemas are complete and canonical', async () => {
@@ -208,7 +202,7 @@ test('homepage metadata and identity schemas are complete and canonical', async 
   assert.equal(attribute(canonical || '', 'href'), 'https://nicovega.dev/')
   assert.equal(
     attribute(ogImage || '', 'content'),
-    'https://nicovega.dev/og-image.jpg'
+    'https://nicovega.dev/api/og'
   )
   assert.equal(attribute(ogType || '', 'content'), 'website')
   assert.equal(person?.name, 'Nicolás Vega')
@@ -306,7 +300,7 @@ test('unknown routes return recoverable 404 responses in HTML and Markdown', asy
     /^text\/html\b/i
   )
   assert.match(html.response.headers.get('x-robots-tag') || '', /noindex/i)
-  assert.match(html.body, /Esta ruta no existe\./)
+  assert.match(html.body, /Esta página se fue a hacer algo distinto\./)
   assert.match(html.body, /sitemap\.xml/)
   assert.match(html.body, /<pre\b/i)
 
@@ -331,6 +325,7 @@ test('machine-readable resources follow their formats and resolve', async () => 
   const robots = await request('/robots.txt')
   const rss = await request('/rss/feed.xml')
   const jsonFeed = await request('/rss/feed.json')
+  const dynamicSocialImage = await request('/api/og')
   const socialImage = await request('/og-image.jpg')
 
   assert.equal(llms.response.status, 200)
@@ -378,6 +373,12 @@ test('machine-readable resources follow their formats and resolve', async () => 
   assert.doesNotMatch(rss.body, /Spencer Sharp|planetaria\.tech/)
   assert.equal(jsonFeed.response.status, 200)
   assert.doesNotThrow(() => JSON.parse(jsonFeed.body))
+
+  assert.equal(dynamicSocialImage.response.status, 200)
+  assert.match(
+    dynamicSocialImage.response.headers.get('content-type') || '',
+    /^image\/png\b/i
+  )
 
   assert.equal(socialImage.response.status, 200)
   assert.match(

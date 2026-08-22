@@ -324,6 +324,91 @@ export const booksData: Book[] = [
       goodFor: 'Emprendedores, product managers y cualquiera en tech.',
       notGoodFor: 'Quienes busquen solo una perspectiva de Silicon Valley.'
     }
+  },
+  {
+    id: 20,
+    title: 'El Arte de la Guerra',
+    author: 'Sun Tzu',
+    image: 'https://covers.openlibrary.org/b/isbn/0140439196-L.jpg',
+    rating: 2,
+    slug: 'el-arte-de-la-guerra',
+    review: {
+      summary: 'No logré entender bien la narración. Es como si alguien hiciera un resumen del libro y te contara lo que escribió el autor, quizás fue la edición que compré. Al final fue muy difícil de leer y enganchar. Lo que sí rescato es que te da una mirada distinta de cómo se trata la guerra y principios básicos que también aplican a momentos críticos que a veces tenemos en la vida.',
+      liked: 'No mucho',
+      about: 'Un tratado militar escrito en la antigua China con principios estratégicos sobre el arte de la guerra.',
+      whyBought: 'Curiosidad por el clásico de estrategia.',
+      favoritePart: 'Los principios básicos que se pueden aplicar a momentos críticos de la vida.',
+      goodFor: 'Quienes busquen principios de estrategia aplicables más allá de lo militar.',
+      notGoodFor: 'Quienes busquen una lectura entretenida o narrativa fluida.'
+    }
+  },
+  {
+    id: 19,
+    title: 'En los dominios de Amazon',
+    author: 'Jean-Baptiste Malet',
+    image: 'https://covers.openlibrary.org/b/isbn/9788492755981-L.jpg',
+    rating: 3,
+    slug: 'en-los-dominios-de-amazon',
+    review: {
+      summary: 'Me esperaba más contenido considerando que es una infiltración dentro de Amazon. Las entrevistas que consigue al final no le dan los testimonios ni las cuñas que necesita, y se nota cierta hipérbole en el contexto general. Dicho eso, destaco cómo describe paso a paso la estructura del trabajo diario y lo estandarizado que está todo. Se nota que es un trabajo duro de investigación, aunque el resultado se queda un poco corto.',
+      liked: 'Está bien',
+      about: 'Un periodista se infiltra como trabajador en un almacén de Amazon para revelar las condiciones laborales desde adentro.',
+      whyBought: 'Curiosidad por conocer el funcionamiento interno de Amazon.',
+      favoritePart: 'La descripción detallada de la rutina diaria y la estandarización del trabajo en los almacenes.',
+      goodFor: 'Quienes quieran entender cómo funciona Amazon por dentro.',
+      notGoodFor: 'Quienes esperen revelaciones impactantes o un relato más profundo.'
+    }
+  },
+  {
+    id: 20,
+    title: 'Let My People Go Surfing',
+    author: 'Yvon Chouinard',
+    image: 'https://covers.openlibrary.org/b/isbn/0143037838-L.jpg',
+    rating: 4,
+    slug: 'let-my-people-go-surfing',
+    review: {
+      summary: 'La primera parte es extraordinaria. La vida de Yvon Chouinard es una locura: alguien que vivía puramente del deporte, low cost, durmiendo en parques y bajo arbustos, y que a partir de esa pasión construyó Patagonia. Se nota la pasión detrás de la empresa y de los pilares culturales que se formaron desde ahí. En la última parte el libro se va más hacia lo ecológico con mucho dato duro, que quizás hoy ya no es tan necesario para convencer al lector de que hay que actuar. Me hubiera gustado que contara más historias de sus aventuras alrededor del planeta, donde hacía deporte extremo y sacaba ideas para mejorar Patagonia, tanto en producto como en procesos e impacto social y político.',
+      liked: 'Mucho',
+      about: 'La historia del fundador de Patagonia y la filosofía empresarial detrás de una de las marcas más auténticas del mundo.',
+      whyBought: 'Por el interés en Patagonia como empresa y su enfoque en producto e impacto.',
+      favoritePart: 'La historia personal de Chouinard y cómo su estilo de vida moldeó la cultura de Patagonia.',
+      goodFor: 'Emprendedores que quieran ver cómo la pasión y los valores pueden guiar una empresa.',
+      notGoodFor: 'Quienes busquen solo datos ecológicos actualizados o una biografía más extensa.'
+    }
+  },
+  {
+    id: 21,
+    title: 'El Alquimista',
+    author: 'Paulo Coelho',
+    image: 'https://covers.openlibrary.org/b/isbn/0062315005-L.jpg',
+    rating: 5,
+    slug: 'el-alquimista',
+    review: {
+      summary: 'Lo leí súper rápido y me encantó. Me gustó mucho la parte geográfica: la historia transcurre entre España y Marruecos, lugares en los que no he estado precisamente, pero sí cerca, y conozco ambas culturas, así que fue interesante ponerse en esos tiempos pasados. El protagonista emprende una gran aventura que termina en un final bastante sorpresivo y que hace mucho sentido. Es una lectura fácil, se entiende bien cuáles son los objetivos, y es muy inspiradora para la etapa que estoy viviendo ahora. De lo negativo no tengo nada que decir: cinco estrellas de cinco. Full recomendado.',
+      liked: 'Muchísimo',
+      about: 'La fábula de Santiago, un pastor andaluz que emprende un viaje desde España hacia Marruecos y el desierto en busca de un tesoro y de su Leyenda Personal.',
+      whyBought: 'Buscaba una lectura corta e inspiradora para la etapa que estoy viviendo.',
+      favoritePart: 'El viaje entre España y Marruecos, culturas que conozco de cerca, y un final sorpresivo que hace todo el sentido.',
+      goodFor: 'Cualquiera que busque una lectura fácil e inspiradora sobre perseguir sus sueños.',
+      notGoodFor: 'Difícil decir algo malo; quizás quienes prefieran historias largas y densas, porque se termina muy rápido.'
+    }
+  },
+  {
+    id: 22,
+    title: 'The Creative Act: A Way of Being',
+    author: 'Rick Rubin',
+    image: 'https://covers.openlibrary.org/b/isbn/0593652886-L.jpg',
+    rating: 3,
+    slug: 'the-creative-act',
+    review: {
+      summary: 'Lo encontré bueno, pero no es necesariamente el libro de creatividad con el que más me identifico. Tiene pasajes medio abstractos —no sé si confusos— así que no es la lectura más fácil de digerir que he tenido sobre creatividad. Algunas cosas sí me hicieron sentido con los tiempos actuales y con los procesos y momentos creativos que he tenido que afrontar: en momentos críticos, donde uno no sabe qué hacer, creo que puede sumar valor. Lo apliqué al mundo de la programación, de las startups y de la empresa que estamos creando, y aplicaba, pero no en el cien por ciento de los casos. Overall no me aportó tanto valor ni lo encontré tan revelador como lo mucho que se recomendaba.',
+      liked: 'Más o menos',
+      about: 'Las reflexiones de Rick Rubin sobre la creatividad como una forma de ser: cómo abrirse a las ideas y sostener el proceso creativo en el tiempo.',
+      whyBought: 'Por lo mucho que se recomendaba como libro de creatividad.',
+      favoritePart: 'Las recomendaciones para momentos críticos, cuando uno está estancado o le falta visión o certeza de cómo ir avanzando.',
+      goodFor: 'Personas que hacen arte como trabajo o que dedican el cien por ciento de su día a lo creativo.',
+      notGoodFor: 'Quienes busquen una guía práctica y fácil de digerir; aplicado a la programación o a las startups solo funciona en parte.'
+    }
   }
 ]
 
@@ -390,12 +475,6 @@ export const wishlistData: WishlistBook[] = [
     image: 'https://covers.openlibrary.org/b/isbn/0374533555-L.jpg'
   },
   {
-    id: 11,
-    title: 'The Alchemist',
-    author: 'Paulo Coelho',
-    image: 'https://covers.openlibrary.org/b/isbn/0062315005-L.jpg'
-  },
-  {
     id: 12,
     title: '1984',
     author: 'George Orwell',
@@ -438,12 +517,6 @@ export const wishlistData: WishlistBook[] = [
     image: 'https://covers.openlibrary.org/b/isbn/0321348109-L.jpg'
   },
   {
-    id: 20,
-    title: 'Let My People Go Surfing',
-    author: 'Yvon Chouinard',
-    image: 'https://covers.openlibrary.org/b/isbn/0143037838-L.jpg'
-  },
-  {
     id: 21,
     title: 'The 7 Habits of Highly Effective People',
     author: 'Stephen R. Covey',
@@ -466,12 +539,6 @@ export const wishlistData: WishlistBook[] = [
     title: 'The Art of Spending Money',
     author: 'Morgan Housel',
     image: 'https://m.media-amazon.com/images/I/71Pusl9N1AL._AC_UF1000,1000_QL80_.jpg'
-  },
-  {
-    id: 25,
-    title: 'The Creative Act: A Way of Being',
-    author: 'Rick Rubin',
-    image: 'https://covers.openlibrary.org/b/isbn/0593652886-L.jpg'
   },
   {
     id: 26,
@@ -510,11 +577,4 @@ export const wishlistData: WishlistBook[] = [
     image: 'https://m.media-amazon.com/images/I/91YfNb49PLL._AC_UF1000,1000_QL80_.jpg',
     readingNow: true
   },
-  {
-    id: 32,
-    title: 'El Arte de la Guerra',
-    author: 'Sun Tzu',
-    image: 'https://covers.openlibrary.org/b/isbn/0140439196-L.jpg',
-    readingNow: true
-  }
 ]

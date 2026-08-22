@@ -2,10 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 import type { GetStaticProps } from 'next'
+import { useEffect, useState } from 'react'
 import type { SVGProps, ComponentType } from 'react'
 import type { StaticImageData } from 'next/image'
 
-import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import {
@@ -29,30 +29,8 @@ import logoDrexel from '@/images/logos/drexel-uni-logo.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
+import { fireConfetti } from '@/lib/confetti'
 import SEO from '@/components/SEO'
-
-function MailIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path
-        d="M2.75 7.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
-      />
-      <path
-        d="m4 6 6.024 5.479a2.915 2.915 0 0 0 3.952 0L20 6"
-        className="stroke-zinc-400 dark:stroke-zinc-500"
-      />
-    </svg>
-  )
-}
 
 function BriefcaseIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -71,6 +49,29 @@ function BriefcaseIcon(props: SVGProps<SVGSVGElement>) {
       />
       <path
         d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5"
+        className="stroke-zinc-400 dark:stroke-zinc-500"
+      />
+    </svg>
+  )
+}
+
+function AcademicCapIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <path
+        d="M3.75 9.25 12 4.75l8.25 4.5L12 13.75l-8.25-4.5Z"
+        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
+      />
+      <path
+        d="M6.75 11.75v4c0 1.657 2.35 3 5.25 3s5.25-1.343 5.25-3v-4M20.25 9.25v4.5"
         className="stroke-zinc-400 dark:stroke-zinc-500"
       />
     </svg>
@@ -132,35 +133,6 @@ function SocialLink({ icon: Icon, ...props }: SocialLinkProps) {
     >
       <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
     </Link>
-  )
-}
-
-function Newsletter() {
-  return (
-    <form
-      action="/thank-you"
-      className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
-    >
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <MailIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Stay up to date</span>
-      </h2>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Get notified when I publish something new, and unsubscribe at any time.
-      </p>
-      <div className="mt-6 flex">
-        <input
-          type="email"
-          placeholder="Email address"
-          aria-label="Email address"
-          required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
-        />
-        <Button type="submit" className="ml-4 flex-none">
-          Join
-        </Button>
-      </div>
-    </form>
   )
 }
 
@@ -291,36 +263,54 @@ function Resume() {
             typeof role.end === 'string'
               ? role.end
               : String(role.end.dateTime ?? role.end.label ?? '')
+          const hasLink = role.link !== '#'
 
           return (
             <li key={roleIndex} className="flex gap-4">
-              <Link
-                href={role.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition-all duration-200 ease-in-out hover:scale-110 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
-              >
-                <Image
-                  src={role.logo}
-                  alt=""
-                  className="h-7 w-7"
-                  height={18}
-                  width={18}
-                  unoptimized={true}
-                />
-              </Link>
+              {hasLink ? (
+                <Link
+                  href={role.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition-all duration-200 ease-in-out hover:scale-110 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
+                >
+                  <Image
+                    src={role.logo}
+                    alt=""
+                    className="h-7 w-7"
+                    height={18}
+                    width={18}
+                    unoptimized={true}
+                  />
+                </Link>
+              ) : (
+                <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                  <Image
+                    src={role.logo}
+                    alt=""
+                    className="h-7 w-7"
+                    height={18}
+                    width={18}
+                    unoptimized={true}
+                  />
+                </div>
+              )}
               <dl className="flex flex-auto flex-wrap gap-x-2">
                 <dt className="sr-only">Compañía</dt>
                 <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
                   <div className="flex items-center justify-between">
-                    <Link
-                      href={role.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="transition-all duration-200 ease-in-out hover:scale-105 hover:text-zinc-600 dark:hover:text-zinc-300"
-                    >
-                      {role.company}
-                    </Link>
+                    {hasLink ? (
+                      <Link
+                        href={role.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-all duration-200 ease-in-out hover:scale-105 hover:text-zinc-600 dark:hover:text-zinc-300"
+                      >
+                        {role.company}
+                      </Link>
+                    ) : (
+                      <span>{role.company}</span>
+                    )}
                     <span className="text-xs text-zinc-500 dark:text-zinc-400">
                       {role.flag} {role.location}
                     </span>
@@ -330,10 +320,10 @@ function Resume() {
                 <dd className="text-xs text-zinc-500 dark:text-zinc-400">
                   {role.title}
                 </dd>
-                <dt className="sr-only">Date</dt>
+                <dt className="sr-only">Fecha</dt>
                 <dd
                   className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                  aria-label={`${startLabel} until ${endLabel}`}
+                  aria-label={`${startLabel} hasta ${endLabel}`}
                 >
                   <time dateTime={startDateTime}>{startLabel}</time>{' '}
                   <span aria-hidden="true">—</span>{' '}
@@ -352,7 +342,7 @@ function Education() {
   const resume: Role[] = [
     {
       company: 'Politecnico di Torino',
-      title: 'MSc. Mangement & Engineering',
+      title: 'MSc. Management & Engineering',
       logo: logoPoli,
       location: 'Turín, Italia',
       flag: '🇮🇹',
@@ -385,7 +375,7 @@ function Education() {
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <BriefcaseIcon className="h-6 w-6 flex-none" />
+        <AcademicCapIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">Educación</span>
       </h2>
       <ol className="mt-6 space-y-4">
@@ -434,14 +424,14 @@ function Education() {
                     </span>
                   </div>
                 </dd>
-                <dt className="sr-only">Title</dt>
+                <dt className="sr-only">Título</dt>
                 <dd className="text-xs text-zinc-500 dark:text-zinc-400">
                   {role.title}
                 </dd>
-                <dt className="sr-only">Date</dt>
+                <dt className="sr-only">Fecha</dt>
                 <dd
                   className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                  aria-label={`${startLabel} until ${endLabel}`}
+                  aria-label={`${startLabel} hasta ${endLabel}`}
                 >
                   <time dateTime={startDateTime}>{startLabel}</time>{' '}
                   <span aria-hidden="true">—</span>{' '}
@@ -460,7 +450,22 @@ interface HomeProps {
   articles: ArticlePreview[]
 }
 
+function getGreetingByHour(hour: number) {
+  if (hour >= 5 && hour <= 11) return '¡Buenos días! ☀️'
+  if (hour >= 12 && hour <= 19) return '¡Buenas tardes!'
+  return '¡Buenas noches! 🌙'
+}
+
 export default function Home({ articles }: HomeProps) {
+  // La página se genera estáticamente: renderizamos "¡Hola!" en el servidor
+  // y actualizamos el saludo según la hora local después del montaje,
+  // evitando un mismatch de hidratación.
+  const [greeting, setGreeting] = useState('¡Hola!')
+
+  useEffect(() => {
+    setGreeting(getGreetingByHour(new Date().getHours()))
+  }, [])
+
   return (
     <>
       <SEO
@@ -482,120 +487,45 @@ export default function Home({ articles }: HomeProps) {
       />
       <Container className="mt-9">
         <header className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Nicolás Vega
+          <h1 className="animate-fade-up text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+            Nicolás Vega{' '}
+            <span
+              className="animate-wave text-3xl sm:text-4xl"
+              role="img"
+              aria-label="Mano saludando"
+              onClick={(event) => fireConfetti(event.clientX, event.clientY)}
+            >
+              👋
+            </span>
           </h1>
           <p
-            className="mt-6 text-base text-zinc-600 dark:text-zinc-400"
+            className="animate-fade-up animation-delay-150 mt-6 text-base text-zinc-600 dark:text-zinc-400"
             role="doc-subtitle"
           >
-            Hola, soy Nico: ingeniero de software y cofundador de Carvuk. Me
-            gusta convertir problemas operacionales complejos en productos
-            digitales simples, trabajar cerca de los usuarios y construir
-            equipos que aprendan rápido. Este es mi sitio profesional oficial.
+            {greeting} Soy Nico, ingeniero de software y cofundador de Carvuk.
+            Siempre estoy haciendo algo o aprendiendo algo distinto. ¡Gracias
+            por la visita!
           </p>
-          <nav className="mt-6 flex gap-6" aria-label="Social media links">
+          <nav className="animate-fade-up animation-delay-300 mt-6 flex gap-6" aria-label="Redes sociales">
             <SocialLink
               href="https://github.com/nicolasvegam"
-              aria-label="Sígueme on GitHub"
+              aria-label="Sígueme en GitHub"
               icon={GitHubIcon}
             />
             <SocialLink
               href="https://instagram.com/nicovega.dev"
-              aria-label="Sígueme on Instagram"
+              aria-label="Sígueme en Instagram"
               icon={InstagramIcon}
             />
             <SocialLink
               href="https://www.linkedin.com/in/nicolasvegam/"
-              aria-label="Sígueme on LinkedIn"
+              aria-label="Sígueme en LinkedIn"
               icon={LinkedInIcon}
             />
           </nav>
         </header>
       </Container>
       <Photos />
-      <Container className="mt-24 sm:mt-28">
-        <section
-          className="max-w-3xl"
-          aria-labelledby="engineering-product-operations"
-        >
-          <h2
-            id="engineering-product-operations"
-            className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl"
-          >
-            Ingeniería, producto y operación
-          </h2>
-          <div className="mt-6 space-y-6 text-base text-zinc-600 dark:text-zinc-400">
-            <p>
-              Soy Nicolás Vega, también conocido como Nico Vega. Trabajo en la
-              intersección entre software, producto y operaciones digitales. En
-              Carvuk cofundé una plataforma que coordina mantenciones,
-              reparaciones y otros servicios para automóviles. El desafío no es
-              solo escribir código: también implica entender el problema del
-              usuario, diseñar procesos confiables y convertir lo aprendido en
-              herramientas que un equipo pueda operar y mejorar.
-            </p>
-            <p>
-              Antes de emprender trabajé en desarrollo de producto,
-              investigación de datos y tecnología en Xepelin, el Instituto
-              Milenio Fundamentos de los Datos, Vodafone Italia, Mercado Libre y
-              Huawei China. Esas experiencias me permitieron observar empresas
-              en etapas y culturas muy distintas: desde probar un producto junto
-              a sus primeros usuarios hasta colaborar en organizaciones
-              internacionales. Mi formación combina Management &amp; Computer
-              Science en la Pontificia Universidad Católica de Chile y
-              Management &amp; Engineering en el Politecnico di Torino.
-            </p>
-            <p>
-              En este sitio documento ideas que me han servido al construir
-              productos: liderazgo técnico, decisiones con información
-              incompleta, automatización, startups y aprendizaje práctico.
-              También mantengo un registro de proyectos, charlas, entrevistas y
-              libros. No intento presentar una receta universal; son
-              experiencias situadas que pueden ayudar a formular mejores
-              preguntas, comparar enfoques o encontrar una referencia concreta
-              para seguir investigando.
-            </p>
-            <p>
-              nicovega.dev es el dominio canónico de este perfil. La página{' '}
-              <Link
-                href="/about"
-                className="font-medium text-teal-500 hover:text-teal-600 dark:text-teal-400"
-              >
-                About
-              </Link>{' '}
-              amplía la biografía y enlaza fuentes públicas que permiten
-              distinguirme de otras personas con el mismo nombre. Para consultas
-              profesionales, colaboraciones, charlas o correcciones, la página
-              de{' '}
-              <Link
-                href="/contact"
-                className="font-medium text-teal-500 hover:text-teal-600 dark:text-teal-400"
-              >
-                contacto
-              </Link>{' '}
-              publica el canal oficial y explica su alcance.
-            </p>
-            <p>
-              Los agentes y buscadores pueden solicitar las páginas HTML
-              publicadas con
-              <code className="mx-1 rounded bg-zinc-100 px-1.5 py-0.5 text-sm text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                Accept: text/markdown
-              </code>
-              para obtener una representación compacta. El archivo{' '}
-              <Link
-                href="/llms.txt"
-                className="font-medium text-teal-500 hover:text-teal-600 dark:text-teal-400"
-              >
-                llms.txt
-              </Link>{' '}
-              indica cuándo usar este sitio, cómo citarlo y dónde recuperarse de
-              una ruta inexistente. Los artículos educativos no sustituyen
-              asesoría financiera, legal ni profesional individual.
-            </p>
-          </div>
-        </section>
-      </Container>
       <Container className="mt-24 md:mt-28">
         <main className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <section
@@ -603,7 +533,7 @@ export default function Home({ articles }: HomeProps) {
             aria-labelledby="recent-articles"
           >
             <h2 id="recent-articles" className="sr-only">
-              Recent Articles
+              Artículos recientes
             </h2>
             {articles.map((article) => (
               <Article key={article.slug} article={article} />
@@ -611,7 +541,7 @@ export default function Home({ articles }: HomeProps) {
           </section>
           <aside
             className="space-y-10 lg:pl-16 xl:pl-24"
-            aria-label="Professional information"
+            aria-label="Información profesional"
           >
             <Resume />
             <Education />

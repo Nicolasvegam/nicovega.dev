@@ -4,6 +4,7 @@ import type { ReactNode, SVGProps } from 'react'
 import { Container } from '@/components/Container'
 import { formatDate } from '@/lib/formatDate'
 import { Prose } from '@/components/Prose'
+import { ReadingProgress } from '@/components/ReadingProgress'
 import type { ArticleMeta } from '@/types/articles'
 import SEO from '@/components/SEO'
 
@@ -40,12 +41,14 @@ export function ArticleLayout({
   }
 
   const canonicalPath = meta.slug ? `/articles/${meta.slug}` : '/articles'
+  const ogImage = `/api/og?title=${encodeURIComponent(meta.title)}`
 
   return (
     <>
       <SEO
         title={`${meta.title} — Nicolás Vega`}
         description={meta.description}
+        image={ogImage}
         url={`https://nicovega.dev${canonicalPath}`}
         type="article"
         publishedTime={meta.date}
@@ -53,6 +56,7 @@ export function ArticleLayout({
         tags={meta.tags}
         author={meta.author || 'Nicolás Vega'}
       />
+      <ReadingProgress />
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
           <div className="mx-auto max-w-2xl">

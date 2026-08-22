@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
+import { printConsoleGreeting } from '@/lib/consoleGreeting'
 import { Analytics } from '@vercel/analytics/react'
 import '@/styles/tailwind.css'
 import 'focus-visible'
@@ -24,6 +25,10 @@ interface PageProps {
 
 export default function App({ Component, pageProps, router }: AppProps<PageProps>) {
   const previousPathname = usePrevious(router.pathname)
+
+  useEffect(() => {
+    printConsoleGreeting()
+  }, [])
 
   return (
     <>

@@ -25,7 +25,7 @@ interface SEOProps {
 export default function SEO({
   title = 'Nicolás Vega — Software Engineer y Cofundador',
   description = 'Sitio oficial de Nicolás Vega, ingeniero de software y cofundador de Carvuk en Santiago, Chile.',
-  image = '/og-image.jpg',
+  image = '/api/og',
   url = SITE_URL,
   type = 'website',
   publishedTime,
@@ -132,8 +132,8 @@ export default function SEO({
       primaryImageOfPage: {
         '@type': 'ImageObject',
         url: imageUrl,
-        width: 1731,
-        height: 908,
+        width: 1200,
+        height: 630,
       },
     },
   ]
@@ -185,8 +185,8 @@ export default function SEO({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={imageUrl} />
-      <meta property="og:image:width" content="1731" />
-      <meta property="og:image:height" content="908" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta
         property="og:image:alt"
         content="Nicolás Vega — Software Engineer y Cofundador"
