@@ -86,12 +86,12 @@ module.exports = withMDX({
     return [
       {
         source: '/rutificador/:path*',
-        destination: 'https://rutificador.nicovega.dev/:path*',
+        destination: 'https://rutificador.vercel.app/:path*',
         permanent: true,
       },
       {
         source: '/feriados-chile/:path*',
-        destination: 'https://feriados-chile.nicovega.dev/:path*',
+        destination: 'https://www.feriadosenchile.com/:path*',
         permanent: true,
       },
       {
