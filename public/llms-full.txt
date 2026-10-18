@@ -100,12 +100,11 @@ Casos no apropiados:
 
 ## Projects
 
-- [Di Monk](https://www.dimonk.com): Herramientas y experimentos de software.
+- [Di Monk](https://dimonk.vercel.app): Herramientas y experimentos de software.
 - [Carvuk](https://www.carvuk.com): Plataforma digital para coordinar mantenciones y servicios del auto.
 - [Feriados Chile](https://feriadosenchile.com): Consulta de feriados y cálculo de días hábiles en Chile.
-- [Rutificador](https://www.rutschile.com): Validación y generación de RUT chilenos.
+- [Rutificador](https://rutificador.vercel.app): Validación y generación de RUT chilenos.
 - [Ardum](https://ardum.cl): Aplicación web relacionada con trabajo en relaves mineros.
-- [EOD Puerto Varas](https://eod-puertovaras-git-main-nicolasvegams-projects.vercel.app): Sitio informativo para una institución pública.
 - [Trotaglobo](https://trotaglobo.vercel.app): Registro visual de viajes y destinos.
 
 ## Talks and media
