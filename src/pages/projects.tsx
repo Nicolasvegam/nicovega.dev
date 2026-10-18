@@ -7,7 +7,6 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import SEO from '@/components/SEO'
 
 import logoCarvuk from '@/images/logos/carvuk-logo.png'
-import logoEod from '@/images/logos/eod-logo.png'
 import logoArdum from '@/images/logos/ardum-logo.png'
 import logoRutificador from '@/images/logos/rutificador.svg'
 import logoFeriados from '@/images/logos/feriados.webp'
@@ -28,7 +27,7 @@ const projects: Project[] = [
   {
     name: 'Di Monk',
     description: 'Un lugar para concentrar todo el desarrollo de herramientas y experimentos.',
-    link: { href: 'https://www.dimonk.com/', label: 'Di Monk' },
+    link: { href: 'https://dimonk.vercel.app/', label: 'Di Monk' },
     logo: logoDiMonk,
   },
   {
@@ -49,7 +48,7 @@ const projects: Project[] = [
     name: 'Rutificador',
     description:
       'App para verificar la validez y generar RUTs chilenos.',
-    link: { href: 'https://www.rutschile.com/', label: 'Rutificar' },
+    link: { href: 'https://rutificador.vercel.app/', label: 'Rutificar' },
     logo: logoRutificador,
   },
   {
@@ -58,13 +57,6 @@ const projects: Project[] = [
       'Webapp para un cliente que trabaja en los relaves mineros.',
     link: { href: 'https://ardum.cl', label: 'ardum.cl' },
     logo: logoArdum,
-  },
-  {
-    name: 'EOD Puerto Varas',
-    description:
-      'Landing web para una institución gobernamental.',
-    link: { href: 'https://eod-puertovaras-git-main-nicolasvegams-projects.vercel.app/', label: 'eodpuertovaras.cl' },
-    logo: logoEod,
   },
   {
     name: 'Trotaglobo',
