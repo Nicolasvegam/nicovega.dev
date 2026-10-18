@@ -27,7 +27,7 @@ const projects: Project[] = [
   {
     name: 'Di Monk',
     description: 'Un lugar para concentrar todo el desarrollo de herramientas y experimentos.',
-    link: { href: 'https://dimonk.vercel.app/', label: 'Di Monk' },
+    link: { href: 'https://dimonk.nicovega.dev/', label: 'Di Monk' },
     logo: logoDiMonk,
   },
   {
@@ -48,7 +48,7 @@ const projects: Project[] = [
     name: 'Rutificador',
     description:
       'App para verificar la validez y generar RUTs chilenos.',
-    link: { href: 'https://rutificador.vercel.app/', label: 'Rutificar' },
+    link: { href: 'https://rutificador.nicovega.dev/', label: 'Rutificar' },
     logo: logoRutificador,
   },
   {

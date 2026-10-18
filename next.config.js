@@ -86,7 +86,7 @@ module.exports = withMDX({
     return [
       {
         source: '/rutificador/:path*',
-        destination: 'https://rutificador.vercel.app/:path*',
+        destination: 'https://rutificador.nicovega.dev/:path*',
         permanent: true,
       },
       {

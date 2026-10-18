@@ -109,10 +109,10 @@ ${articles
   .join('\n\n')}`,
   '/projects': `# Proyectos de Nicolás Vega
 
-- [Di Monk](https://dimonk.vercel.app/): herramientas y experimentos de software.
+- [Di Monk](https://dimonk.nicovega.dev/): herramientas y experimentos de software.
 - [Carvuk](https://www.carvuk.com): plataforma digital para coordinar mantenciones y servicios del auto.
 - [Feriados Chile](https://feriadosenchile.com/): consulta de feriados y cálculo de días hábiles en Chile.
-- [Rutificador](https://rutificador.vercel.app/): validación y generación de RUT chilenos.
+- [Rutificador](https://rutificador.nicovega.dev/): validación y generación de RUT chilenos.
 - [Ardum](https://ardum.cl): aplicación web relacionada con trabajo en relaves mineros.
 - [Trotaglobo](https://trotaglobo.vercel.app/): registro visual de viajes y destinos.
 
