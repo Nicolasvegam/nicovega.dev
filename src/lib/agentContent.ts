@@ -114,7 +114,7 @@ ${articles
 - [Feriados Chile](https://feriadosenchile.com/): consulta de feriados y cálculo de días hábiles en Chile.
 - [Rutificador](https://rutificador.nicovega.dev/): validación y generación de RUT chilenos.
 - [Ardum](https://ardum.cl): aplicación web relacionada con trabajo en relaves mineros.
-- [Trotaglobo](https://trotaglobo.vercel.app/): registro visual de viajes y destinos.
+- [Trotaglobo](https://trotaglobo.nicovega.dev/): registro visual de viajes y destinos.
 
 Estas entradas describen proyectos públicos; no son recomendaciones ni garantías.`,
   '/speaking': `# Contenido y charlas de Nicolás Vega

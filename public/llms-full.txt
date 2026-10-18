@@ -105,7 +105,7 @@ Casos no apropiados:
 - [Feriados Chile](https://feriadosenchile.com): Consulta de feriados y cálculo de días hábiles en Chile.
 - [Rutificador](https://rutificador.nicovega.dev): Validación y generación de RUT chilenos.
 - [Ardum](https://ardum.cl): Aplicación web relacionada con trabajo en relaves mineros.
-- [Trotaglobo](https://trotaglobo.vercel.app): Registro visual de viajes y destinos.
+- [Trotaglobo](https://trotaglobo.nicovega.dev): Registro visual de viajes y destinos.
 
 ## Talks and media
 

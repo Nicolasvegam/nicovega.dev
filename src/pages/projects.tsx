@@ -62,7 +62,7 @@ const projects: Project[] = [
     name: 'Trotaglobo',
     description:
       'Acá llevo el trackeo de mis viajes y futuros destinos.',
-    link: { href: 'https://trotaglobo.vercel.app/users/user_2x6yUDYSGkHWPYAH88eEC08knh1', label: 'trotaglobo' },
+    link: { href: 'https://trotaglobo.nicovega.dev/users/user_2x6yUDYSGkHWPYAH88eEC08knh1', label: 'trotaglobo' },
     logo: logoTrotaglobo,
   },
 ]

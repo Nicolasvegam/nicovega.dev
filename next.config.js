@@ -96,7 +96,7 @@ module.exports = withMDX({
       },
       {
         source: '/trotaglobo/:path*',
-        destination: 'https://trotaglobo.vercel.app/:path*',
+        destination: 'https://trotaglobo.nicovega.dev/:path*',
         permanent: true,
       },
       {
@@ -115,7 +115,7 @@ module.exports = withMDX({
       },
       {
         source: '/trotaglobo/:path*',
-        destination: 'https://trotaglobo.vercel.app/:path*',
+        destination: 'https://trotaglobo.nicovega.dev/:path*',
       },
     ]
   },
